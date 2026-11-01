@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/*
+  GeoBati — langage visuel « plan de géomètre ».
+  Fond papier légèrement verdi, vert forêt profond pour les zones fortes,
+  ocre « jalon de chantier » pour les actions, gris ardoise pour le texte secondaire.
+  Angles nets, filets fins, annotations en mono comme sur un plan coté.
+  Thème clair unique, assumé : chaque couleur est définie explicitement.
+*/
+@theme {
+  --color-paper: #f2f3ef;
+  --color-paper-2: #e9ebe4;
+  --color-sand: #e6dfcf;
+  --color-white: #fbfbf9;
+  --color-ink: #14201b;
+  --color-slate: #4a5761;
+  --color-line: #cdd1c7;
+  --color-line-strong: #a9afa3;
+
+  --color-forest: #0e3a30;
+  --color-forest-deep: #0a2b23;
+  --color-forest-soft: #1a4d40;
+  --color-forest-line: #2d6352;
+  --color-mist: #c9d8cf;
+
+  --color-ochre: #e0a32e;
+  --color-ochre-deep: #c98d17;
+  --color-ochre-ink: #2a1d05;
+
+  --color-whatsapp: #1fae55;
+
+  --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-xs: 2px;
+
+  --text-display: clamp(2.5rem, 1.6rem + 4.2vw, 5.25rem);
+  --text-display--line-height: 0.98;
+  --text-h1: clamp(2.1rem, 1.5rem + 2.6vw, 3.6rem);
+  --text-h1--line-height: 1.02;
+  --text-h2: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
+  --text-h2--line-height: 1.06;
+  --text-h3: clamp(1.2rem, 1.08rem + 0.5vw, 1.5rem);
+  --text-h3--line-height: 1.2;
+  --text-lead: clamp(1.06rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+  --text-label: 0.72rem;
+  --text-label--line-height: 1.3;
+
+  --ease-survey: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-feature-settings: "ss01" on;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-stretch: 88%;
+    font-weight: 640;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-ochre);
+    color: var(--color-ochre-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ochre-deep);
+    outline-offset: 3px;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Gouttière latérale et largeur de lecture communes */
+  .shell {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-left: max(2rem, env(safe-area-inset-left, 0px));
+      padding-right: max(2rem, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  /* Annotation de plan : petites capitales mono */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .prose-gb {
+    max-width: 65ch;
+  }
+
+  .prose-gb p + p {
+    margin-top: 1rem;
+  }
+
+  /* Grille millimétrée discrète, réservée aux zones « plan » */
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, rgb(20 32 27 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(20 32 27 / 0.055) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .grid-paper-dark {
+    background-image:
+      linear-gradient(to right, rgb(201 216 207 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(201 216 207 / 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Ligne de cheminement reliant les stations (composant Traverse) */
+  .traverse-line {
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 11.5px;
+    width: 1px;
+    transform-origin: top center;
+  }
+
+  .traverse-line--progress {
+    left: 11px;
+    width: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .traverse-line {
+      top: 11.5px;
+      bottom: auto;
+      left: 12px;
+      right: calc((100% - (var(--cols) - 1) * 2rem) / var(--cols) - 12px);
+      width: auto;
+      height: 1px;
+      transform-origin: left center;
+    }
+
+    .traverse-line--progress {
+      top: 11px;
+      height: 2px;
+    }
+  }
+
+  /* Règle graduée : petites graduations tous les 12 px, grandes tous les 60 px */
+  .ruler-ticks {
+    background-image:
+      repeating-linear-gradient(to right, currentColor 0 1px, transparent 1px 60px),
+      repeating-linear-gradient(to right, currentColor 0 1px, transparent 1px 12px);
+    background-size:
+      100% 12px,
+      100% 6px;
+    background-repeat: no-repeat;
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  /* Ligne de cote : trait horizontal fermé par deux petits traits verticaux */
+  .cote {
+    height: 9px;
+    border-inline: 1px solid currentColor;
+    background: linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
+  }
+
+  /* Repères d'angle façon cadre de visée */
+  .corner-marks {
+    position: relative;
+  }
+
+  .corner-marks::before,
+  .corner-marks::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .corner-marks::before {
+    top: -7px;
+    left: -7px;
+    border-top: 1.5px solid currentColor;
+    border-left: 1.5px solid currentColor;
+  }
+
+  .corner-marks::after {
+    bottom: -7px;
+    right: -7px;
+    border-bottom: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+  }
+}
+
+/*
+  Animations : les éléments d'intro sont masqués seulement si JavaScript tourne
+  et que l'utilisateur accepte le mouvement. Filet de sécurité : ils réapparaissent
+  d'eux-mêmes après 2,5 s si le script ne s'exécute pas.
+*/
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-intro] {
+    visibility: hidden;
+    animation: gb-unhide 0s linear 2.5s forwards;
+  }
+}
+
+@keyframes gb-unhide {
+  to {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

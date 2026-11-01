@@ -1,0 +1,83 @@
+/**
+ * Informations générales du cabinet.
+ *
+ * Tout ce qui vaut `null` n'est pas encore confirmé : le site l'affiche comme
+ * « communiqué prochainement » ou masque l'élément. Remplacez chaque valeur
+ * par l'information réelle du cabinet, sans rien inventer (qualifications,
+ * années d'expérience, zones d'intervention, etc.).
+ */
+
+export type SiteConfig = {
+  /** Nom provisoire du cabinet. */
+  name: string;
+  /** Raison sociale complète, pour les mentions légales. */
+  legalName: string | null;
+  /** Courte description utilisée dans les métadonnées et le pied de page. */
+  description: string;
+  /** Adresse publique du site, sans barre finale. */
+  url: string;
+  /** Numéro WhatsApp au format international, sans "+" ni espaces (ex. 2376XXXXXXXX). */
+  whatsappNumber: string;
+  /** Numéro de téléphone tel qu'il doit s'afficher (ex. "+237 6XX XX XX XX"). */
+  phoneDisplay: string | null;
+  /** Numéro de téléphone pour le lien d'appel (ex. "+2376XXXXXXXX"). */
+  phoneHref: string | null;
+  email: string | null;
+  address: {
+    street: string | null;
+    locality: string | null;
+    region: string | null;
+    country: string;
+  };
+  /** Horaires d'ouverture, une ligne par plage. */
+  hours: string[] | null;
+  /** Lien Google Maps vers le cabinet, une fois l'adresse validée. */
+  mapUrl: string | null;
+  /** Zones d'intervention confirmées par le cabinet. */
+  serviceAreas: string[];
+  social: {
+    facebook: string | null;
+    linkedin: string | null;
+    instagram: string | null;
+  };
+};
+
+export const site: SiteConfig = {
+  name: "GeoBati",
+  legalName: null,
+  description:
+    "Cabinet de géomètre au Cameroun : bornage et délimitation, topographie, lotissement, implantation de chantier, drone et conseil foncier.",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
+  whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, ""),
+  phoneDisplay: null,
+  phoneHref: null,
+  email: null,
+  address: {
+    street: null,
+    locality: null,
+    region: null,
+    country: "Cameroun",
+  },
+  hours: null,
+  mapUrl: null,
+  serviceAreas: [],
+  social: {
+    facebook: null,
+    linkedin: null,
+    instagram: null,
+  },
+};
+
+export const mainNav = [
+  { href: "/", label: "Accueil" },
+  { href: "/services", label: "Services" },
+  { href: "/realisations", label: "Réalisations" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/conseils", label: "Conseils" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+/** Les notes « à valider » s'affichent en développement, ou si la variable l'active. */
+export const showDraftNotes =
+  process.env.NODE_ENV === "development" ||
+  process.env.NEXT_PUBLIC_SHOW_DRAFT_NOTES === "true";
