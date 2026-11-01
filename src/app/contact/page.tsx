@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { site } from "@/content/site";
+import { formatPhone, site } from "@/content/site";
 import { services } from "@/content/services";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { getImage } from "@/lib/images";
@@ -29,7 +29,7 @@ export default function ContactPage() {
     {
       icon: <WhatsAppIcon className="size-5" />,
       label: "WhatsApp",
-      value: site.whatsappNumber ? `+${site.whatsappNumber}` : null,
+      value: site.whatsappNumber ? formatPhone(site.whatsappNumber) : null,
       href: whatsappUrl(generalMessage),
       linkLabel: "Écrire sur WhatsApp",
     },

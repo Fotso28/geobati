@@ -9,7 +9,7 @@ Son objectif : conduire chaque visiteur, depuis une publicité, Google ou un ré
 
 ```bash
 npm install
-cp .env.example .env.local   # puis renseigner le numéro WhatsApp
+cp .env.example .env.local   # facultatif : URL du site, autre numéro WhatsApp
 npm run dev                  # http://localhost:3000
 ```
 
@@ -25,7 +25,7 @@ Toutes les pages sont générées en statique au moment du build.
 
 | Quoi | Où |
 |---|---|
-| Numéro WhatsApp (format `2376XXXXXXXX`) | `.env.local` → `NEXT_PUBLIC_WHATSAPP_NUMBER` |
+| Numéro WhatsApp : **+237 655 03 08 15**, déjà configuré | `src/content/site.ts` (ou `NEXT_PUBLIC_WHATSAPP_NUMBER` pour le remplacer) |
 | Adresse publique du site | `.env.local` → `NEXT_PUBLIC_SITE_URL` |
 | Téléphone, e-mail, adresse, horaires, zones d'intervention, réseaux | `src/content/site.ts` |
 | Photos | `public/images/` (voir plus bas) |
@@ -149,4 +149,4 @@ public/images/             Photos à déposer
 ## Déploiement
 
 Le site se déploie tel quel sur Vercel ou tout hébergeur Node.js.
-Pensez à définir `NEXT_PUBLIC_WHATSAPP_NUMBER` et `NEXT_PUBLIC_SITE_URL` dans les variables d'environnement, puis à relancer un build.
+Pensez à définir `NEXT_PUBLIC_SITE_URL` dans les variables d'environnement, puis à relancer un build. Le numéro WhatsApp est déjà inclus dans le code.

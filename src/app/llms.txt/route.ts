@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import { formatPhone, site } from "@/content/site";
 import { services } from "@/content/services";
 import { articles } from "@/content/articles";
 import { absoluteUrl } from "@/lib/jsonld";
@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/jsonld";
 export function GET() {
   const contact = [
     site.phoneDisplay && `- Téléphone : ${site.phoneDisplay}`,
-    site.whatsappNumber && `- WhatsApp : +${site.whatsappNumber}`,
+    site.whatsappNumber && `- WhatsApp : ${formatPhone(site.whatsappNumber)}`,
     site.email && `- E-mail : ${site.email}`,
     (site.address.street || site.address.locality) &&
       `- Adresse : ${[site.address.street, site.address.locality, site.address.country].filter(Boolean).join(", ")}`,

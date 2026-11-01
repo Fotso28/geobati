@@ -48,7 +48,7 @@ export const site: SiteConfig = {
   description:
     "Cabinet de géomètre au Cameroun : bornage et délimitation, topographie, lotissement, implantation de chantier, drone et conseil foncier.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
-  whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, ""),
+  whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "237655030815").replace(/\D/g, ""),
   phoneDisplay: null,
   phoneHref: null,
   email: null,
@@ -76,6 +76,12 @@ export const mainNav = [
   { href: "/conseils", label: "Conseils" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Affiche un numéro international lisiblement, ex. 237655030815 → +237 655 03 08 15. */
+export function formatPhone(digits: string): string {
+  const match = digits.match(/^237(\d{3})(\d{2})(\d{2})(\d{2})$/);
+  return match ? `+237 ${match.slice(1).join(" ")}` : `+${digits}`;
+}
 
 /** Les notes « à valider » s'affichent en développement, ou si la variable l'active. */
 export const showDraftNotes =
