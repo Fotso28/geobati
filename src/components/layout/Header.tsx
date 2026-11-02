@@ -1,4 +1,5 @@
-import { mainNav } from "@/content/site";
+import { formatPhone, mainNav, site } from "@/content/site";
+import { services } from "@/content/services";
 import { ButtonLink } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { NavLinks } from "./NavLinks";
@@ -6,8 +7,10 @@ import { MobileMenu } from "./MobileMenu";
 import { whatsappUrl, generalMessage } from "@/lib/whatsapp";
 
 export function Header() {
+  const serviceLinks = services.map(({ slug, shortName, icon }) => ({ slug, shortName, icon }));
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 text-ink backdrop-blur-sm">
+    // Fond blanc opaque, sans flou : un backdrop-filter ici casserait le positionnement des panneaux fixes.
+    <header className="sticky top-0 z-40 border-b border-line bg-white text-ink">
       <div className="shell flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
         <Logo priority className="h-12 lg:h-[3.75rem]" />
         <NavLinks items={mainNav} className="hidden lg:flex" />
@@ -17,7 +20,12 @@ export function Header() {
               Parler à un géomètre
             </ButtonLink>
           </div>
-          <MobileMenu items={mainNav} whatsappHref={whatsappUrl(generalMessage)} />
+          <MobileMenu
+            items={mainNav}
+            services={serviceLinks}
+            whatsappHref={whatsappUrl(generalMessage)}
+            whatsappDisplay={site.whatsappNumber ? formatPhone(site.whatsappNumber) : undefined}
+          />
         </div>
       </div>
     </header>
