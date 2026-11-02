@@ -8,8 +8,6 @@ type PhotoProps = {
   className?: string;
   /** Précharge l'image (bannière principale uniquement). */
   preload?: boolean;
-  /** Affiche la mention « Illustration » sur les images qui n'en sont pas de réelles. */
-  badge?: boolean;
   /** Active un léger effet de profondeur au défilement. */
   parallax?: boolean;
 };
@@ -18,7 +16,7 @@ type PhotoProps = {
  * Photo d'un emplacement. Sans fichier déposé, affiche un visuel « plan »
  * (quadrillage et courbes de niveau) plutôt qu'une image cassée.
  */
-export function Photo({ image, sizes, className, preload, badge, parallax }: PhotoProps) {
+export function Photo({ image, sizes, className, preload, parallax }: PhotoProps) {
   return (
     <div className={cn("relative overflow-hidden bg-paper-2", className)}>
       {image.src ? (
@@ -35,11 +33,6 @@ export function Photo({ image, sizes, className, preload, badge, parallax }: Pho
         </div>
       ) : (
         <PhotoPlaceholder image={image} />
-      )}
-      {badge && image.src && image.illustration && (
-        <span className="label absolute bottom-3 left-3 bg-ink/75 px-2 py-1 text-[0.62rem] text-paper backdrop-blur-sm">
-          Illustration
-        </span>
       )}
     </div>
   );

@@ -83,7 +83,7 @@ export default async function RealisationPage({ params }: PageProps<"/realisatio
             {gallery.length > 0 && (
               <div className="grid gap-6 sm:grid-cols-2">
                 {gallery.map((image) => (
-                  <Photo key={image.key} image={image} badge sizes="(min-width: 640px) 30vw, 100vw" className="aspect-[4/3]" />
+                  <Photo key={image.key} image={image} sizes="(min-width: 640px) 30vw, 100vw" className="aspect-[4/3]" />
                 ))}
               </div>
             )}

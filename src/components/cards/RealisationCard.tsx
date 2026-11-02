@@ -20,7 +20,6 @@ export function RealisationCard({ item, headingLevel = "h3" }: { item: Realisati
       <Photo
         image={item.image}
         sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-        badge
         className="aspect-[4/3] transition-[filter] duration-500 group-hover:brightness-[0.92]"
       />
       <div className="grid gap-2">

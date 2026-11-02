@@ -36,7 +36,7 @@ export default function MentionsLegalesPage() {
         {
           heading: "Photographies",
           body: [
-            "Les images signalées « Illustration » ou « Exemple illustratif » ne représentent pas des réalisations du cabinet. Les photos de projets réels sont publiées avec l’accord des personnes concernées.",
+            "Certaines images du site sont des illustrations, et les fiches signalées « Exemple illustratif » décrivent des missions types : elles ne représentent pas des réalisations du cabinet. Les photos de projets réels sont publiées avec l’accord des personnes concernées.",
           ],
         },
         {

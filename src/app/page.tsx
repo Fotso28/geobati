@@ -198,7 +198,6 @@ export default function HomePage() {
               >
                 <Photo
                   image={item.image}
-                  badge
                   sizes={index === 0 ? "(min-width: 768px) 56vw, 100vw" : "(min-width: 768px) 40vw, 100vw"}
                   className={index === 0 ? "aspect-[4/3] md:aspect-auto md:h-full md:min-h-[26rem]" : "aspect-[16/10]"}
                 />

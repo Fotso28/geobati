@@ -85,11 +85,6 @@ export function HeroSlideshow({ slides, sizes }: { slides: HeroSlide[]; sizes: s
               ) : null,
             )}
           </div>
-          {current.image.illustration && (
-            <span className="label absolute bottom-3 left-3 z-10 bg-ink/75 px-2 py-1 text-[0.62rem] text-paper backdrop-blur-sm">
-              Illustration
-            </span>
-          )}
         </div>
       </div>
 
