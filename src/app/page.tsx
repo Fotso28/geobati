@@ -27,8 +27,8 @@ export default function HomePage() {
   return (
     <>
       {/* 1. Bannière */}
-      <section className="relative isolate overflow-hidden bg-forest text-white">
-        <TopoLines preset="hero" className="-z-10 text-forest-line/80" />
+      <section className="relative isolate overflow-hidden bg-navy text-white">
+        <TopoLines preset="hero" className="-z-10 text-navy-line/80" />
         <div className="shell grid gap-12 pt-12 pb-14 md:pt-16 lg:grid-cols-12 lg:gap-10 lg:pt-20 lg:pb-20">
           <div className="grid content-center gap-7 lg:col-span-6">
             <div data-intro="fade">
@@ -51,7 +51,7 @@ export default function HomePage() {
             </div>
           </div>
           <figure className="grid gap-4 lg:col-span-6 lg:pl-4">
-            <div data-intro="image" className="corner-marks text-ochre">
+            <div data-intro="image" className="corner-marks text-teal">
               <Photo
                 image={hero}
                 preload
@@ -62,15 +62,15 @@ export default function HomePage() {
               />
             </div>
             <figcaption data-intro="fade" className="label flex items-center gap-3 text-mist/80">
-              <span aria-hidden="true" className="h-px w-8 bg-ochre" />
+              <span aria-hidden="true" className="h-px w-8 bg-teal" />
               Mesurer, implanter, contrôler : chaque mission commence sur le terrain
             </figcaption>
           </figure>
         </div>
 
         {/* Règle graduée : accès direct aux prestations */}
-        <nav aria-label="Nos prestations" className="relative border-t border-forest-line/70">
-          <div aria-hidden="true" className="ruler-ticks absolute inset-x-0 top-0 h-3 text-forest-line" />
+        <nav aria-label="Nos prestations" className="relative border-t border-navy-line/70">
+          <div aria-hidden="true" className="ruler-ticks absolute inset-x-0 top-0 h-3 text-navy-line" />
           <ul className="shell grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
             {services.map((service) => (
               <li key={service.slug}>
@@ -78,7 +78,7 @@ export default function HomePage() {
                   href={`/services/${service.slug}`}
                   className="group flex items-center gap-2.5 py-5 pt-7 text-[0.95rem] font-medium text-mist transition-colors hover:text-white"
                 >
-                  <ServiceIcon name={service.icon} className="size-[1.15rem] shrink-0 text-ochre" />
+                  <ServiceIcon name={service.icon} className="size-[1.15rem] shrink-0 text-teal" />
                   {service.shortName}
                 </Link>
               </li>
@@ -109,15 +109,15 @@ export default function HomePage() {
                   href={`/services/${service.slug}`}
                   className="group grid gap-3 py-6 md:grid-cols-[1fr_auto] md:items-center md:gap-8 md:py-7"
                 >
-                  <span className="text-[clamp(1.3rem,1.05rem+1vw,1.85rem)] leading-tight font-[600] tracking-[-0.02em] [font-stretch:90%] transition-colors group-hover:text-forest-soft">
+                  <span className="text-[clamp(1.3rem,1.05rem+1vw,1.85rem)] leading-tight font-[600] tracking-[-0.02em] [font-stretch:90%] transition-colors group-hover:text-teal-deep">
                     «&nbsp;{service.need}&nbsp;»
                   </span>
-                  <span className="flex items-center gap-3 text-forest">
+                  <span className="flex items-center gap-3 text-navy">
                     <ServiceIcon name={service.icon} className="size-5 shrink-0" />
                     <span className="label">{service.name}</span>
                     <ArrowRight
                       aria-hidden="true"
-                      className="size-4 shrink-0 text-ochre-deep transition-transform duration-300 ease-survey group-hover:translate-x-1"
+                      className="size-4 shrink-0 text-teal-deep transition-transform duration-300 ease-survey group-hover:translate-x-1"
                     />
                   </span>
                 </Link>
@@ -157,7 +157,7 @@ export default function HomePage() {
       <section className="py-20 md:py-28">
         <div className="shell grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6" data-reveal="">
-            <div className="corner-marks text-forest">
+            <div className="corner-marks text-navy">
               <Photo image={team} parallax sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[5/4]" />
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. Aperçu des interventions */}
-      <section className="bg-sand py-20 md:py-28">
+      <section className="bg-tint py-20 md:py-28">
         <div className="shell grid gap-12">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading

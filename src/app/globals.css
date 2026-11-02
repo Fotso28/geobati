@@ -1,31 +1,34 @@
 @import "tailwindcss";
 
 /*
-  GeoBati — langage visuel « plan de géomètre ».
-  Fond papier légèrement verdi, vert forêt profond pour les zones fortes,
-  ocre « jalon de chantier » pour les actions, gris ardoise pour le texte secondaire.
+  GéoBati — langage visuel « plan de géomètre », aux couleurs du logo.
+  Bleu marine et turquoise du logo ; fond blanc cassé froid ; teinte turquoise
+  très claire pour les sections d'alternance ; gris ardoise pour le texte secondaire.
   Angles nets, filets fins, annotations en mono comme sur un plan coté.
   Thème clair unique, assumé : chaque couleur est définie explicitement.
 */
 @theme {
-  --color-paper: #f2f3ef;
-  --color-paper-2: #e9ebe4;
-  --color-sand: #e6dfcf;
-  --color-white: #fbfbf9;
-  --color-ink: #14201b;
-  --color-slate: #4a5761;
-  --color-line: #cdd1c7;
-  --color-line-strong: #a9afa3;
+  --color-paper: #f4f7f9;
+  --color-paper-2: #e8eef2;
+  --color-tint: #e5f3f3;
+  --color-white: #ffffff;
+  --color-ink: #0b2233;
+  --color-slate: #4c5e6c;
+  --color-line: #d3dce3;
+  --color-line-strong: #a7b6c1;
 
-  --color-forest: #0e3a30;
-  --color-forest-deep: #0a2b23;
-  --color-forest-soft: #1a4d40;
-  --color-forest-line: #2d6352;
-  --color-mist: #c9d8cf;
+  /* Bleu marine du logo */
+  --color-navy: #043b58;
+  --color-navy-deep: #022a40;
+  --color-navy-soft: #0b4a6d;
+  --color-navy-line: #1f5c7e;
+  --color-mist: #c3d6e2;
 
-  --color-ochre: #e0a32e;
-  --color-ochre-deep: #c98d17;
-  --color-ochre-ink: #2a1d05;
+  /* Turquoise du logo */
+  --color-teal: #30b0b4;
+  --color-teal-deep: #0b7479;
+  --color-teal-hover: #1fa3a8;
+  --color-teal-ink: #022a40;
 
   --color-whatsapp: #1fae55;
 
@@ -54,7 +57,7 @@
   html {
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6.5rem;
   }
 
   body {
@@ -138,15 +141,15 @@
   /* Grille millimétrée discrète, réservée aux zones « plan » */
   .grid-paper {
     background-image:
-      linear-gradient(to right, rgb(20 32 27 / 0.055) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(20 32 27 / 0.055) 1px, transparent 1px);
+      linear-gradient(to right, rgb(4 59 88 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(4 59 88 / 0.055) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .grid-paper-dark {
     background-image:
-      linear-gradient(to right, rgb(201 216 207 / 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(201 216 207 / 0.07) 1px, transparent 1px);
+      linear-gradient(to right, rgb(195 214 226 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(195 214 226 / 0.07) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 

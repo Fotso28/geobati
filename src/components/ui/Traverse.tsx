@@ -19,12 +19,12 @@ export function Traverse({
       <span
         aria-hidden="true"
         data-traverse-progress=""
-        className="traverse-line traverse-line--progress bg-ochre"
+        className="traverse-line traverse-line--progress bg-teal"
         style={{ "--cols": steps.length } as React.CSSProperties}
       />
       {steps.map((step, index) => (
         <li key={step.title} className="relative grid gap-2 pl-11 md:pt-12 md:pl-0" data-reveal="">
-          <StationMark className="absolute top-0 left-0 size-6 text-forest" />
+          <StationMark className="absolute top-0 left-0 size-6 text-navy" />
           <p className="label text-slate">Étape {index + 1}</p>
           <h3 className="text-h3">{step.title}</h3>
           <p className="max-w-[34ch] text-slate">{step.text}</p>

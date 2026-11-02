@@ -48,7 +48,7 @@ export function Photo({ image, sizes, className, preload, badge, parallax }: Pho
 function PhotoPlaceholder({ image }: { image: ResolvedImage }) {
   const isDev = process.env.NODE_ENV === "development";
   return (
-    <div role="img" aria-label={image.alt} className="grid-paper absolute inset-0 text-forest">
+    <div role="img" aria-label={image.alt} className="grid-paper absolute inset-0 text-navy">
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[url('/topo.svg')] bg-cover bg-center opacity-80"
@@ -56,7 +56,7 @@ function PhotoPlaceholder({ image }: { image: ResolvedImage }) {
       <div aria-hidden="true" className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-4">
         <p className="label max-w-[34ch] text-[0.62rem] leading-snug text-slate">
           Fig. — {image.alt}
-          {isDev && <span className="mt-1 block normal-case text-ochre-deep">public/images/{image.file}.webp</span>}
+          {isDev && <span className="mt-1 block normal-case text-teal-deep">public/images/{image.file}.webp</span>}
         </p>
         <svg viewBox="0 0 64 14" className="hidden w-16 shrink-0 text-slate sm:block" aria-hidden="true">
           <path d="M1 3v8M21 3v8M42 3v8M63 3v8M1 11h62" fill="none" stroke="currentColor" strokeWidth="1" />

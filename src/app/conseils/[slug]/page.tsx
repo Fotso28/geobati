@@ -81,7 +81,7 @@ export default async function ArticlePage({ params }: PageProps<"/conseils/[slug
             ))}
 
             <aside className="prose-gb flex gap-4 border border-line bg-white p-6" data-reveal="">
-              <Info aria-hidden="true" className="mt-1 size-5 shrink-0 text-forest" />
+              <Info aria-hidden="true" className="mt-1 size-5 shrink-0 text-navy" />
               <div className="grid gap-1">
                 <p className="font-semibold">Les limites de cet article</p>
                 <p className="text-slate">{article.limits}</p>
@@ -90,7 +90,7 @@ export default async function ArticlePage({ params }: PageProps<"/conseils/[slug
           </div>
 
           <aside className="lg:col-span-4">
-            <div className="grid gap-5 bg-forest p-7 text-white lg:sticky lg:top-28">
+            <div className="grid gap-5 bg-navy p-7 text-white lg:sticky lg:top-28">
               <p className="label text-mist">Une question sur votre situation ?</p>
               <p className="text-[1.35rem] leading-tight font-[620] tracking-[-0.015em] [font-stretch:90%]">
                 Posez-la directement au cabinet, avec vos mots.
@@ -101,10 +101,10 @@ export default async function ArticlePage({ params }: PageProps<"/conseils/[slug
               {service && (
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex items-center justify-between gap-3 border-t border-forest-line pt-5 text-mist hover:text-white"
+                  className="group flex items-center justify-between gap-3 border-t border-navy-line pt-5 text-mist hover:text-white"
                 >
                   <span className="flex items-center gap-3">
-                    <ServiceIcon name={service.icon} className="size-5 text-ochre" />
+                    <ServiceIcon name={service.icon} className="size-5 text-teal" />
                     {service.name}
                   </span>
                   <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
@@ -122,7 +122,7 @@ export default async function ArticlePage({ params }: PageProps<"/conseils/[slug
             {others.map((other) => (
               <li key={other.slug} className="bg-white">
                 <Link href={`/conseils/${other.slug}`} className="group grid h-full content-between gap-6 p-6 hover:bg-paper">
-                  <span className="text-[1.15rem] leading-snug font-semibold group-hover:text-forest-soft">{other.title}</span>
+                  <span className="text-[1.15rem] leading-snug font-semibold group-hover:text-teal-deep">{other.title}</span>
                   <span className="label text-slate">Lecture · {other.readingMinutes} min</span>
                 </Link>
               </li>

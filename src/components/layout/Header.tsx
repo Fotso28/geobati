@@ -7,9 +7,9 @@ import { whatsappUrl, generalMessage } from "@/lib/whatsapp";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-forest-line/60 bg-forest text-white">
-      <div className="shell flex h-[4.25rem] items-center justify-between gap-6">
-        <Logo />
+    <header className="sticky top-0 z-40 border-b border-line bg-white/95 text-ink backdrop-blur-sm">
+      <div className="shell flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
+        <Logo priority className="h-12 lg:h-[3.75rem]" />
         <NavLinks items={mainNav} className="hidden lg:flex" />
         <div className="flex items-center gap-2">
           <div className="hidden sm:block">

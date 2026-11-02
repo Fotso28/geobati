@@ -107,7 +107,7 @@ export const services: Service[] = [
     seo: {
       title: "Bornage et délimitation de terrain au Cameroun",
       description:
-        "Identifier et documenter les limites d’une parcelle avant un achat ou une construction. Décrivez votre situation au cabinet GeoBati.",
+        "Identifier et documenter les limites d’une parcelle avant un achat ou une construction. Décrivez votre situation au cabinet GéoBati.",
     },
   },
   {
@@ -178,7 +178,7 @@ export const services: Service[] = [
     seo: {
       title: "Relevé topographique et plan de terrain au Cameroun",
       description:
-        "Relief, dimensions, éléments existants : obtenez un plan topographique fiable pour concevoir ou présenter votre projet. Échangez avec GeoBati.",
+        "Relief, dimensions, éléments existants : obtenez un plan topographique fiable pour concevoir ou présenter votre projet. Échangez avec GéoBati.",
     },
   },
   {
@@ -248,7 +248,7 @@ export const services: Service[] = [
     seo: {
       title: "Lotissement et division de terrain au Cameroun",
       description:
-        "Diviser une parcelle, organiser des lots, prévoir les accès : préparez votre projet de lotissement avec le cabinet GeoBati.",
+        "Diviser une parcelle, organiser des lots, prévoir les accès : préparez votre projet de lotissement avec le cabinet GéoBati.",
     },
   },
   {
@@ -317,7 +317,7 @@ export const services: Service[] = [
     seo: {
       title: "Implantation de bâtiment et suivi de chantier au Cameroun",
       description:
-        "Axes, angles et niveaux reportés sur le terrain avant les fondations, puis contrôlés en cours de chantier. Parlez de votre chantier à GeoBati.",
+        "Axes, angles et niveaux reportés sur le terrain avant les fondations, puis contrôlés en cours de chantier. Parlez de votre chantier à GéoBati.",
     },
   },
   {
@@ -387,7 +387,7 @@ export const services: Service[] = [
     seo: {
       title: "Drone, orthophoto et cartographie au Cameroun",
       description:
-        "Photographies aériennes, orthophotos et modèles de terrain pour documenter un site étendu ou suivre un chantier. Échangez avec GeoBati.",
+        "Photographies aériennes, orthophotos et modèles de terrain pour documenter un site étendu ou suivre un chantier. Échangez avec GéoBati.",
     },
   },
   {
@@ -456,7 +456,7 @@ export const services: Service[] = [
     seo: {
       title: "Conseil et accompagnement foncier au Cameroun",
       description:
-        "Comprendre vos documents, savoir quoi vérifier avant d’acheter un terrain, identifier les démarches à engager. Posez votre question à GeoBati.",
+        "Comprendre vos documents, savoir quoi vérifier avant d’acheter un terrain, identifier les démarches à engager. Posez votre question à GéoBati.",
     },
   },
 ];

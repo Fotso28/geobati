@@ -6,11 +6,11 @@ import { WhatsAppIcon } from "./icons";
 type Variant = "primary" | "dark" | "outline" | "outline-light" | "quiet";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ochre text-ochre-ink hover:bg-ochre-deep",
-  dark: "bg-forest text-white hover:bg-forest-soft",
+  primary: "bg-teal text-teal-ink hover:bg-teal-hover",
+  dark: "bg-navy text-white hover:bg-navy-soft",
   outline: "border border-ink/80 text-ink hover:bg-ink hover:text-paper",
   "outline-light": "border border-mist/60 text-white hover:border-white hover:bg-white/8",
-  quiet: "text-ink underline decoration-line-strong underline-offset-[6px] hover:decoration-ochre-deep px-0! h-auto!",
+  quiet: "text-ink underline decoration-line-strong underline-offset-[6px] hover:decoration-teal px-0! h-auto!",
 };
 
 type ButtonLinkProps = {

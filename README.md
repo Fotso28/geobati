@@ -1,6 +1,6 @@
-# GeoBati — site vitrine du cabinet de géomètre
+# GéoBati — site vitrine du cabinet de géomètre
 
-Site Next.js d'un cabinet de géomètre au Cameroun (nom provisoire : **GeoBati**).
+Site Next.js d'un cabinet de géomètre au Cameroun (nom provisoire : **GéoBati**).
 Son objectif : conduire chaque visiteur, depuis une publicité, Google ou un réseau social, vers une conversation WhatsApp avec le cabinet.
 
 **Parcours :** publicité ou recherche → page adaptée au besoin → explications rassurantes → formulaire court → message WhatsApp prérempli, que le visiteur relit et envoie lui-même.
@@ -103,11 +103,24 @@ Prochaines étapes conseillées une fois le site en ligne : créer la fiche Goog
 
 ## Direction artistique
 
-Langage visuel inspiré du plan de géomètre : courbes de niveau (avec une courbe maîtresse plus épaisse toutes les cinq), règle graduée, repères de bornes, stations de cheminement pour les étapes, lignes de cote, annotations en mono.
+Les couleurs viennent du logo du cabinet (`public/brand/`) :
 
-- Couleurs (`src/app/globals.css`) : vert forêt profond, papier légèrement verdi, sable, ocre « jalon de chantier » pour les actions, gris ardoise pour le texte secondaire.
-- Typographies : Archivo (titres en largeur réduite, texte courant) et IBM Plex Mono (annotations).
-- Angles nets, filets fins, pas d'ombres ni de dégradés décoratifs.
+- **bleu marine** `#043b58` pour l'en-tête des sections fortes, la bannière et le pied de page ;
+- **turquoise** `#30b0b4` pour les boutons d'action et les repères, avec un texte marine pour rester lisible ;
+- un turquoise plus foncé `#0b7479` pour le texte turquoise sur fond clair ;
+- un fond blanc cassé froid, une teinte turquoise très claire pour les sections d'alternance et du gris ardoise pour le texte secondaire.
+
+Toutes les couleurs sont définies une seule fois dans `src/app/globals.css`. Les contrastes respectent le niveau AA des règles d'accessibilité (WCAG).
+
+Le logo existe en deux versions, extraites de l'image fournie :
+- `logo-couleur.png` pour les fonds clairs ;
+- `logo-clair.png`, où le marine passe en blanc, pour les fonds marine.
+
+L'icône du navigateur reprend le géomètre dans son cercle (`src/app/icon.png`).
+Pour un rendu plus net, remplacez ces fichiers par le logo d'origine en SVG ou en PNG haute définition, s'il est disponible.
+
+Le langage graphique reste celui du plan de géomètre : courbes de niveau (avec une courbe maîtresse plus épaisse toutes les cinq), règle graduée, repères de bornes, stations de cheminement pour les étapes, lignes de cote, annotations en mono.
+Typographies : Archivo (titres en largeur réduite, texte courant) et IBM Plex Mono (annotations).
 
 ## Animations (GSAP)
 

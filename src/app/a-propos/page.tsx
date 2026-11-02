@@ -13,7 +13,7 @@ import { DraftNote, JsonLd, SectionHeading } from "@/components/ui/primitives";
 export const metadata: Metadata = {
   title: "Le cabinet et son équipe",
   description:
-    "Découvrez le cabinet de géomètre GeoBati : sa démarche, son équipe et le matériel utilisé pour vos projets de terrain au Cameroun.",
+    "Découvrez le cabinet de géomètre GéoBati : sa démarche, son équipe et le matériel utilisé pour vos projets de terrain au Cameroun.",
   alternates: { canonical: "/a-propos" },
 };
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
       <section className="border-y border-line bg-white py-20 md:py-24">
         <div className="shell grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
           <div className="md:col-span-4" data-reveal="">
-            <div className="corner-marks text-forest">
+            <div className="corner-marks text-navy">
               <Photo image={getImage("manager")} sizes="(min-width: 768px) 30vw, 100vw" className="aspect-[4/5]" />
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
               {about.team.map((member) => (
                 <li key={member.name} className="grid gap-2 border-t border-line pt-5" data-reveal="">
                   <p className="text-h3">{member.name}</p>
-                  <p className="label text-forest">{member.role}</p>
+                  <p className="label text-navy">{member.role}</p>
                   <p className="text-slate">{member.bio}</p>
                 </li>
               ))}

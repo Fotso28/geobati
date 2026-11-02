@@ -14,8 +14,8 @@ export function CtaBand({
   children: React.ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-forest text-white">
-      <TopoLines preset="band" className="-z-10 text-forest-line" />
+    <section className="relative isolate overflow-hidden bg-navy text-white">
+      <TopoLines preset="band" className="-z-10 text-navy-line" />
       <div className="shell grid gap-10 py-20 md:grid-cols-12 md:items-end md:py-28">
         <div className="grid gap-5 md:col-span-7" data-reveal="">
           {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}

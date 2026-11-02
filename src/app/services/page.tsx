@@ -14,7 +14,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Nos services de géomètre",
   description:
-    "Bornage, topographie, lotissement, implantation de chantier, drone et conseil foncier : comparez les prestations du cabinet GeoBati et trouvez celle qui correspond à votre projet.",
+    "Bornage, topographie, lotissement, implantation de chantier, drone et conseil foncier : comparez les prestations du cabinet GéoBati et trouvez celle qui correspond à votre projet.",
   alternates: { canonical: "/services" },
 };
 
@@ -38,9 +38,9 @@ export default function ServicesPage() {
               <li key={service.slug}>
                 <a
                   href={`#${service.slug}`}
-                  className="inline-flex items-center gap-2 border border-line-strong bg-white/60 px-3 py-2 text-[0.9rem] font-medium hover:border-forest hover:text-forest"
+                  className="inline-flex items-center gap-2 border border-line-strong bg-white/60 px-3 py-2 text-[0.9rem] font-medium hover:border-navy hover:text-navy"
                 >
-                  <ServiceIcon name={service.icon} className="size-4 text-forest" />
+                  <ServiceIcon name={service.icon} className="size-4 text-navy" />
                   {service.shortName}
                 </a>
               </li>
@@ -67,12 +67,12 @@ export default function ServicesPage() {
               </Link>
             </div>
             <div className={cn("grid content-center gap-5 md:col-span-6", index % 2 === 1 ? "md:order-1" : "md:col-start-7")}>
-              <p className="label flex items-center gap-2.5 text-forest" data-reveal="">
+              <p className="label flex items-center gap-2.5 text-navy" data-reveal="">
                 <ServiceIcon name={service.icon} className="size-4" />
                 {service.visitorQuestion}
               </p>
               <h2 id={`${service.slug}-titre`} className="text-h2" data-reveal="">
-                <Link href={`/services/${service.slug}`} className="hover:text-forest-soft">
+                <Link href={`/services/${service.slug}`} className="hover:text-teal-deep">
                   {service.name}
                 </Link>
               </h2>

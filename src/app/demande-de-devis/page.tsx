@@ -11,7 +11,7 @@ import { QuoteFormWithParams } from "@/components/forms/QuoteFormWithParams";
 export const metadata: Metadata = {
   title: "Demander un devis",
   description:
-    "Décrivez votre besoin en trois étapes courtes : bornage, topographie, lotissement, implantation… Le message est prêt à envoyer sur WhatsApp au cabinet GeoBati.",
+    "Décrivez votre besoin en trois étapes courtes : bornage, topographie, lotissement, implantation… Le message est prêt à envoyer sur WhatsApp au cabinet GéoBati.",
   alternates: { canonical: "/demande-de-devis" },
 };
 

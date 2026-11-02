@@ -42,12 +42,12 @@ export default function ConseilsPage() {
             <div className="grid gap-4 md:col-span-5">
               <p className="label text-slate">Lecture · {featured.readingMinutes} min</p>
               <h2 className="text-h2">
-                <Link href={`/conseils/${featured.slug}`} className="after:absolute after:inset-0 hover:text-forest-soft">
+                <Link href={`/conseils/${featured.slug}`} className="after:absolute after:inset-0 hover:text-teal-deep">
                   {featured.title}
                 </Link>
               </h2>
               <p className="text-lead text-slate">{featured.excerpt}</p>
-              <span aria-hidden="true" className="inline-flex items-center gap-2 font-semibold text-forest">
+              <span aria-hidden="true" className="inline-flex items-center gap-2 font-semibold text-navy">
                 Lire l’article
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
@@ -60,7 +60,7 @@ export default function ConseilsPage() {
                 <article className="group relative grid gap-3 py-7 md:grid-cols-12 md:items-baseline md:gap-8">
                   <p className="label text-slate md:col-span-2">Lecture · {article.readingMinutes} min</p>
                   <h2 className="text-[clamp(1.25rem,1.05rem+0.8vw,1.6rem)] leading-tight md:col-span-6">
-                    <Link href={`/conseils/${article.slug}`} className="after:absolute after:inset-0 group-hover:text-forest-soft">
+                    <Link href={`/conseils/${article.slug}`} className="after:absolute after:inset-0 group-hover:text-teal-deep">
                       {article.title}
                     </Link>
                   </h2>

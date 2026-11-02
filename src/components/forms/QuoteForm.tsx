@@ -103,7 +103,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
         </p>
         <ol className="grid grid-cols-3 gap-1.5" aria-hidden="true">
           {STEP_TITLES.map((title, index) => (
-            <li key={title} className={cn("h-1 transition-colors duration-300", index <= step ? "bg-ochre" : "bg-line")} />
+            <li key={title} className={cn("h-1 transition-colors duration-300", index <= step ? "bg-teal" : "bg-line")} />
           ))}
         </ol>
       </div>
@@ -126,8 +126,8 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
               <label
                 key={option.slug}
                 className={cn(
-                  "flex cursor-pointer items-center gap-4 border px-4 py-3.5 transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-ochre-deep",
-                  checked ? "border-forest bg-forest text-white" : "border-line-strong hover:border-forest",
+                  "flex cursor-pointer items-center gap-4 border px-4 py-3.5 transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-teal-deep",
+                  checked ? "border-navy bg-navy text-white" : "border-line-strong hover:border-navy",
                 )}
               >
                 <input
@@ -145,7 +145,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
                   aria-hidden="true"
                   className={cn(
                     "flex size-9 shrink-0 items-center justify-center border",
-                    checked ? "border-forest-line bg-forest-soft text-ochre" : "border-line text-forest",
+                    checked ? "border-navy-line bg-navy-soft text-teal" : "border-line text-navy",
                   )}
                 >
                   {option.icon ? <ServiceIcon name={option.icon} className="size-[1.15rem]" /> : <span className="font-mono text-sm">?</span>}
@@ -154,7 +154,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
                   <span className="font-semibold">{option.name}</span>
                   {option.hint && <span className={cn("text-[0.88rem]", checked ? "text-mist" : "text-slate")}>{option.hint}</span>}
                 </span>
-                <Check aria-hidden="true" className={cn("ml-auto size-5 shrink-0 text-ochre", !checked && "invisible")} />
+                <Check aria-hidden="true" className={cn("ml-auto size-5 shrink-0 text-teal", !checked && "invisible")} />
               </label>
             );
           })}
@@ -231,7 +231,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
       )}
 
       {error && (
-        <p role="alert" className="-mt-2 border-l-2 border-ochre-deep pl-3 text-[0.95rem] text-ink">
+        <p role="alert" className="-mt-2 border-l-2 border-teal-deep pl-3 text-[0.95rem] text-ink">
           {error}
         </p>
       )}
@@ -250,7 +250,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
         {step < 2 ? (
           <button
             type="submit"
-            className="group inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-forest px-6 font-semibold text-white transition-colors hover:bg-forest-soft"
+            className="group inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-navy px-6 font-semibold text-white transition-colors hover:bg-navy-soft"
           >
             Continuer
             <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
@@ -262,7 +262,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
               onClick={copyMessage}
               className="inline-flex h-12 items-center justify-center gap-2 font-semibold text-slate hover:text-ink"
             >
-              {copied ? <Check aria-hidden="true" className="size-4 text-forest" /> : <Copy aria-hidden="true" className="size-4" />}
+              {copied ? <Check aria-hidden="true" className="size-4 text-navy" /> : <Copy aria-hidden="true" className="size-4" />}
               {copied ? "Message copié" : "Copier le message"}
             </button>
             <a
@@ -270,7 +270,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
               target="_blank"
               rel="noopener noreferrer"
               onClick={onOpenWhatsApp}
-              className="inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-ochre px-6 font-semibold text-ochre-ink transition-colors hover:bg-ochre-deep"
+              className="inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-teal px-6 font-semibold text-teal-ink transition-colors hover:bg-teal-hover"
             >
               <WhatsAppIcon className="size-5" />
               Ouvrir WhatsApp avec ce message
@@ -287,7 +287,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
       )}
 
       {showDraftNotes && !site.whatsappNumber && (
-        <p className="border border-dashed border-ochre-deep bg-ochre/10 px-3 py-2 font-mono text-[0.72rem] text-ochre-ink">
+        <p className="border border-dashed border-teal-deep bg-teal/10 px-3 py-2 font-mono text-[0.72rem] text-teal-ink">
           <strong>À configurer · </strong>numéro WhatsApp absent (NEXT_PUBLIC_WHATSAPP_NUMBER). Sans lui, WhatsApp demande au
           visiteur de choisir un contact.
         </p>
@@ -297,7 +297,7 @@ export function QuoteForm({ options, initialService, reference }: QuoteFormProps
 }
 
 const inputClass =
-  "h-12 w-full rounded-xs border border-line-strong bg-paper px-4 text-[1rem] text-ink placeholder:text-slate/60 transition-colors focus:border-forest focus:bg-white focus:outline-none aria-[invalid=true]:border-ochre-deep";
+  "h-12 w-full rounded-xs border border-line-strong bg-paper px-4 text-[1rem] text-ink placeholder:text-slate/60 transition-colors focus:border-navy focus:bg-white focus:outline-none aria-[invalid=true]:border-teal-deep";
 
 function Field({ id, label, required, children }: { id: string; label: string; required?: boolean; children: React.ReactNode }) {
   return (
@@ -314,7 +314,7 @@ function Field({ id, label, required, children }: { id: string; label: string; r
 /** Rend le message comme dans WhatsApp : les *libellés* en gras. */
 function MessagePreview({ text }: { text: string }) {
   return (
-    <div className="relative border-l-2 border-whatsapp bg-[#eef3ee] px-5 py-4 text-[0.97rem] leading-relaxed">
+    <div className="relative border-l-2 border-whatsapp bg-tint px-5 py-4 text-[0.97rem] leading-relaxed">
       {text.split("\n").map((line, index) => {
         if (!line) return <br key={index} />;
         const match = line.match(/^\*(.+?)\*\s?(.*)$/);

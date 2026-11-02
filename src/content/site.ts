@@ -8,8 +8,10 @@
  */
 
 export type SiteConfig = {
-  /** Nom provisoire du cabinet. */
+  /** Nom du cabinet, tel qu'il figure sur le logo. */
   name: string;
+  /** Signature du logo. */
+  tagline: string;
   /** Raison sociale complète, pour les mentions légales. */
   legalName: string | null;
   /** Courte description utilisée dans les métadonnées et le pied de page. */
@@ -43,7 +45,8 @@ export type SiteConfig = {
 };
 
 export const site: SiteConfig = {
-  name: "GeoBati",
+  name: "GéoBati",
+  tagline: "Géomètres bâtisseurs 3.0",
   legalName: null,
   description:
     "Cabinet de géomètre au Cameroun : bornage et délimitation, topographie, lotissement, implantation de chantier, drone et conseil foncier.",

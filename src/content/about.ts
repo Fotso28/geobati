@@ -10,7 +10,7 @@ export const about = {
   intro: {
     draft: true,
     paragraphs: [
-      "GeoBati accompagne particuliers, familles, entreprises et porteurs de projets dans leurs projets de terrain au Cameroun.",
+      "GéoBati accompagne particuliers, familles, entreprises et porteurs de projets dans leurs projets de terrain au Cameroun.",
       "Notre métier consiste à mesurer, représenter et expliquer : connaître un terrain avec précision, et faire en sorte que chacun comprenne ce que les mesures veulent dire pour son projet.",
     ],
   },

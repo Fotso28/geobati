@@ -32,7 +32,7 @@ export function RealisationsExplorer({
               onClick={() => setActive(filter.key)}
               className={cn(
                 "inline-flex h-10 items-center gap-2 border px-4 text-[0.92rem] font-medium transition-colors",
-                selected ? "border-forest bg-forest text-white" : "border-line-strong bg-white/60 hover:border-forest",
+                selected ? "border-navy bg-navy text-white" : "border-line-strong bg-white/60 hover:border-navy",
               )}
             >
               {filter.label}

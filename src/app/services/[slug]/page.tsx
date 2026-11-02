@@ -72,7 +72,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
           <ul className="grid gap-px self-start border border-line bg-line sm:grid-cols-2 lg:col-span-7">
             {service.situations.map((situation) => (
               <li key={situation} className="flex gap-4 bg-paper p-6" data-reveal="">
-                <ServiceIcon name={service.icon} className="mt-0.5 size-5 shrink-0 text-forest" />
+                <ServiceIcon name={service.icon} className="mt-0.5 size-5 shrink-0 text-navy" />
                 <span>{situation}</span>
               </li>
             ))}
@@ -101,7 +101,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
               text="Rien d’obligatoire : écrivez-nous avec ce que vous avez. Ces éléments nous aident à vous répondre plus vite."
             />
           </div>
-          <div className="bg-sand p-7 md:p-10 lg:col-span-7" data-reveal="">
+          <div className="bg-tint p-7 md:p-10 lg:col-span-7" data-reveal="">
             <MarkerList items={service.prepare} className="gap-4 text-[1.05rem]" />
             <div className="mt-8 border-t border-ink/15 pt-6">
               <ButtonLink href={formHref} variant="dark">
@@ -144,10 +144,10 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
               <li key={item.slug} className="border-b border-line lg:border-r lg:last:border-r-0 lg:first:[&>a]:pl-0">
                 <Link href={`/services/${item.slug}`} className="group flex h-full items-center justify-between gap-3 py-5 lg:px-4">
                   <span className="flex items-center gap-3 font-semibold">
-                    <ServiceIcon name={item.icon} className="size-5 shrink-0 text-forest" />
+                    <ServiceIcon name={item.icon} className="size-5 shrink-0 text-navy" />
                     {item.shortName}
                   </span>
-                  <ArrowRight aria-hidden="true" className="size-4 text-ochre-deep transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight aria-hidden="true" className="size-4 text-teal-deep transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </li>
             ))}

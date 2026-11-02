@@ -8,7 +8,7 @@ import { BorneMark } from "./icons";
 export function Eyebrow({ children, tone = "dark", className }: { children: React.ReactNode; tone?: "dark" | "light"; className?: string }) {
   return (
     <p className={cn("label flex items-center gap-2.5", tone === "dark" ? "text-slate" : "text-mist", className)}>
-      <BorneMark className="size-2.5 shrink-0 text-ochre" />
+      <BorneMark className="size-2.5 shrink-0 text-teal" />
       <span>{children}</span>
     </p>
   );
@@ -20,7 +20,7 @@ export function MarkerList({ items, className, tone = "dark" }: { items: string[
     <ul className={cn("grid gap-3", className)}>
       {items.map((item) => (
         <li key={item} className="flex gap-3.5">
-          <BorneMark className={cn("mt-[0.5em] size-2.5 shrink-0", tone === "dark" ? "text-forest" : "text-ochre")} />
+          <BorneMark className={cn("mt-[0.5em] size-2.5 shrink-0", tone === "dark" ? "text-navy" : "text-teal")} />
           <span>{item}</span>
         </li>
       ))}
@@ -71,7 +71,7 @@ export function DraftNote({ children, className }: { children: React.ReactNode; 
   return (
     <p
       className={cn(
-        "border border-dashed border-ochre-deep bg-ochre/10 px-3 py-2 font-mono text-[0.72rem] leading-snug text-ochre-ink",
+        "border border-dashed border-teal-deep bg-teal/10 px-3 py-2 font-mono text-[0.72rem] leading-snug text-teal-ink",
         className,
       )}
     >

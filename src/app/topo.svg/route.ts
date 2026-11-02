@@ -10,7 +10,7 @@ export function GET() {
     levels: 8,
     seed: 5,
   });
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#1a4d40" stroke-opacity="0.32">${paths
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#0b4a6d" stroke-opacity="0.32">${paths
     .map((d, index) => `<path d="${d}" stroke-width="${index % 5 === 4 ? 1.6 : 1}"/>`)
     .join("")}</g></svg>`;
   return new Response(svg, {

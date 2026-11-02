@@ -11,7 +11,7 @@ import { RealisationsExplorer } from "@/components/cards/RealisationsExplorer";
 export const metadata: Metadata = {
   title: "Nos réalisations",
   description:
-    "Bornage, topographie, implantation, lotissement, drone : découvrez le type de missions que le cabinet GeoBati réalise sur le terrain.",
+    "Bornage, topographie, implantation, lotissement, drone : découvrez le type de missions que le cabinet GéoBati réalise sur le terrain.",
   alternates: { canonical: "/realisations" },
 };
 
@@ -45,7 +45,7 @@ export default function RealisationsPage() {
       <section className="py-16 md:py-20">
         <div className="shell grid gap-10">
           {hasIllustrative && (
-            <p className="flex max-w-3xl gap-3 border-l-2 border-ochre bg-white px-5 py-4 text-[0.98rem] text-slate" data-reveal="">
+            <p className="flex max-w-3xl gap-3 border-l-2 border-teal bg-white px-5 py-4 text-[0.98rem] text-slate" data-reveal="">
               <span>
                 <strong className="font-semibold text-ink">Exemples illustratifs.</strong> Les fiches signalées comme telles
                 décrivent des missions types. Elles seront remplacées par des projets réels du cabinet, publiés avec

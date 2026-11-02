@@ -14,7 +14,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez le cabinet de géomètre GeoBati : WhatsApp, téléphone, adresse et formulaire de contact. Décrivez votre projet de terrain au Cameroun.",
+    "Contactez le cabinet de géomètre GéoBati : WhatsApp, téléphone, adresse et formulaire de contact. Décrivez votre projet de terrain au Cameroun.",
   alternates: { canonical: "/contact" },
 };
 
@@ -95,7 +95,7 @@ export default function ContactPage() {
             <dl className="border-t border-line">
               {rows.map((row) => (
                 <div key={row.label} className="grid grid-cols-[2rem_1fr] gap-x-3 gap-y-1 border-b border-line py-5" data-reveal="">
-                  <span className="row-span-2 pt-0.5 text-forest">{row.icon}</span>
+                  <span className="row-span-2 pt-0.5 text-navy">{row.icon}</span>
                   <dt className="label text-slate">{row.label}</dt>
                   <dd>
                     {row.value ? (
@@ -103,7 +103,7 @@ export default function ContactPage() {
                         <a
                           href={row.href}
                           {...(row.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                          className="font-semibold underline decoration-line-strong underline-offset-4 hover:decoration-ochre-deep"
+                          className="font-semibold underline decoration-line-strong underline-offset-4 hover:decoration-teal-deep"
                         >
                           {row.value}
                         </a>

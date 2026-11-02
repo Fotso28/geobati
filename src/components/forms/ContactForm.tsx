@@ -30,7 +30,7 @@ export function ContactForm({ subjects }: { subjects: string[] }) {
   }
 
   const input =
-    "h-12 w-full rounded-xs border border-line-strong bg-paper px-4 text-[1rem] focus:border-forest focus:bg-white focus:outline-none";
+    "h-12 w-full rounded-xs border border-line-strong bg-paper px-4 text-[1rem] focus:border-navy focus:bg-white focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5 border border-line bg-white p-6 md:p-8">
@@ -64,13 +64,13 @@ export function ContactForm({ subjects }: { subjects: string[] }) {
         />
       </div>
       {error && (
-        <p role="alert" className="border-l-2 border-ochre-deep pl-3 text-[0.95rem]">
+        <p role="alert" className="border-l-2 border-teal-deep pl-3 text-[0.95rem]">
           {error}
         </p>
       )}
       <button
         type="submit"
-        className="inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-ochre px-6 font-semibold text-ochre-ink transition-colors hover:bg-ochre-deep"
+        className="inline-flex h-14 items-center justify-center gap-2.5 rounded-xs bg-teal px-6 font-semibold text-teal-ink transition-colors hover:bg-teal-hover"
       >
         <WhatsAppIcon className="size-5" />
         Envoyer via WhatsApp

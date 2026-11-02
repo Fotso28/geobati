@@ -24,14 +24,14 @@ export function NavLinks({ items, className }: { items: readonly NavItem[]; clas
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative px-3 py-2 text-[0.94rem] font-medium transition-colors",
-                  active ? "text-white" : "text-mist hover:text-white",
+                  active ? "text-navy" : "text-slate hover:text-navy",
                 )}
               >
                 {item.label}
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "absolute inset-x-3 -bottom-[13px] h-[2px] origin-left bg-ochre transition-transform duration-300 ease-survey",
+                    "absolute inset-x-3 -bottom-[21px] h-[2px] origin-left bg-teal transition-transform duration-300 ease-survey",
                     active ? "scale-x-100" : "scale-x-0",
                   )}
                 />

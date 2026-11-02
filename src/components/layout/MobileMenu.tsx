@@ -48,7 +48,7 @@ export function MobileMenu({ items, whatsappHref }: { items: readonly NavItem[];
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-11 items-center justify-center text-white"
+        className="inline-flex size-11 items-center justify-center text-navy"
       >
         {open ? <X aria-hidden="true" className="size-6" /> : <Menu aria-hidden="true" className="size-6" />}
         <span className="sr-only">{open ? "Fermer le menu" : "Ouvrir le menu"}</span>
@@ -57,20 +57,20 @@ export function MobileMenu({ items, whatsappHref }: { items: readonly NavItem[];
       <div
         id={panelId}
         hidden={!open}
-        className="fixed inset-x-0 top-[4.25rem] bottom-0 z-40 overflow-y-auto bg-forest-deep"
+        className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 overflow-y-auto bg-navy-deep"
       >
         <nav aria-label="Navigation mobile" className="shell flex min-h-full flex-col gap-8 py-8">
-          <ul className="border-t border-forest-line">
+          <ul className="border-t border-navy-line">
             {items.map((item) => {
               const active = isActive(pathname, item.href);
               return (
-                <li key={item.href} className="border-b border-forest-line">
+                <li key={item.href} className="border-b border-navy-line">
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "flex items-center justify-between py-4 text-[1.6rem] font-[620] tracking-[-0.02em] [font-stretch:88%]",
-                      active ? "text-ochre" : "text-white",
+                      active ? "text-teal" : "text-white",
                     )}
                   >
                     {item.label}
@@ -83,7 +83,7 @@ export function MobileMenu({ items, whatsappHref }: { items: readonly NavItem[];
           <div className="mt-auto grid gap-3 pb-[env(safe-area-inset-bottom,0px)]">
             <Link
               href="/demande-de-devis"
-              className="flex h-14 items-center justify-center gap-2 rounded-xs bg-ochre font-semibold text-ochre-ink"
+              className="flex h-14 items-center justify-center gap-2 rounded-xs bg-teal font-semibold text-teal-ink"
             >
               Demander un devis
             </Link>

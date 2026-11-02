@@ -24,10 +24,10 @@ export function Footer() {
   ].filter(Boolean) as { label: string; value: string; href?: string }[];
 
   return (
-    <footer className="bg-forest-deep text-mist">
+    <footer className="bg-navy-deep text-mist">
       <div className="shell grid gap-12 py-16 md:grid-cols-12 md:gap-8">
         <div className="grid content-start gap-5 md:col-span-4">
-          <Logo />
+          <Logo variant="light" className="h-14" />
           <p className="max-w-[36ch] text-[0.98rem]">{site.description}</p>
           <div>
             <ButtonLink href={whatsappUrl(generalMessage)} icon="whatsapp" variant="outline-light">
@@ -58,7 +58,7 @@ export function Footer() {
               <li key={line.label} className="grid gap-0.5">
                 <span className="label text-[0.62rem] text-mist/70">{line.label}</span>
                 {line.href ? (
-                  <a href={line.href} className="text-white hover:text-ochre">
+                  <a href={line.href} className="text-white hover:text-teal">
                     {line.value}
                   </a>
                 ) : (
@@ -74,7 +74,7 @@ export function Footer() {
         </FooterColumn>
       </div>
 
-      <div className="border-t border-forest-line/50">
+      <div className="border-t border-navy-line/50">
         <div className="shell flex flex-col gap-3 py-6 text-[0.85rem] sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {site.name} · Cabinet de géomètre au {site.address.country}
@@ -100,7 +100,7 @@ export function Footer() {
 function FooterColumn({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) {
   return (
     <div className={className}>
-      <h2 className="label mb-5 text-ochre [font-stretch:100%]">{title}</h2>
+      <h2 className="label mb-5 text-teal [font-stretch:100%]">{title}</h2>
       <ul className="grid gap-3 text-[0.96rem]">{children}</ul>
     </div>
   );

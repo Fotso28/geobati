@@ -52,7 +52,7 @@ export function PageHero({ breadcrumbs, eyebrow, title, text, actions, image, ch
         </div>
         {image && (
           <div className="lg:col-span-5">
-            <div className="corner-marks text-forest" data-intro="image">
+            <div className="corner-marks text-navy" data-intro="image">
               <Photo image={image} sizes="(min-width: 1024px) 38vw, 100vw" className="aspect-[4/3] lg:aspect-[5/6]" preload />
             </div>
           </div>
