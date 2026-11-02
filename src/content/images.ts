@@ -31,6 +31,27 @@ export const imageSlots = {
     illustration: true,
     position: "38% 50%",
   },
+  heroBureau: {
+    file: "hero-bureau",
+    alt: "Géomètre au travail sur ordinateur, au bureau",
+    brief: "Traitement des mesures au bureau.",
+    illustration: true,
+    position: "55% 35%",
+  },
+  heroEquipe: {
+    file: "hero-equipe",
+    alt: "Deux techniciens souriants sur le terrain avec un récepteur GNSS, le long d'une voie ferrée",
+    brief: "Équipe sur le terrain.",
+    illustration: true,
+    position: "50% 28%",
+  },
+  heroServices: {
+    file: "hero-services",
+    alt: "Topographe à la station totale face à un paysage de collines",
+    brief: "Géomètre en intervention, grand paysage.",
+    illustration: true,
+    position: "80% 50%",
+  },
   team: {
     file: "equipe",
     alt: "Deux techniciens partent en intervention avec un trépied et une valise de matériel",

@@ -40,7 +40,9 @@ export function PageMotion({ children }: { children: React.ReactNode }) {
             { clipPath: "inset(0% 0% 0% 0%)", duration: 1.25, ease: "power4.inOut", clearProps: "clipPath" },
             0,
           );
-          if (media) intro.fromTo(media, { scale: 1.12 }, { scale: 1, duration: 1.6, ease: "power3.out" }, 0);
+          if (media && frame.getAttribute("aria-roledescription") !== "carrousel") {
+            intro.fromTo(media, { scale: 1.12 }, { scale: 1, duration: 1.6, ease: "power3.out" }, 0);
+          }
         });
 
         q<HTMLElement>("[data-intro='headline']").forEach((headline) => {

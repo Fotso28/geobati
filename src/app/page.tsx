@@ -14,9 +14,16 @@ import { Faq } from "@/components/ui/Faq";
 import { ServiceIcon } from "@/components/ui/icons";
 import { DraftNote, Eyebrow, JsonLd, SectionHeading } from "@/components/ui/primitives";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { HeroSlideshow } from "@/components/sections/HeroSlideshow";
 
 export default function HomePage() {
-  const hero = getImage("hero");
+  const heroSlides = [
+    { image: getImage("hero"), caption: "Mesurer, implanter, contrôler : chaque mission commence sur le terrain" },
+    { image: getImage("heroBureau"), caption: "Au bureau : traitement des mesures et production des plans" },
+    { image: getImage("heroEquipe"), caption: "Sur le terrain : une équipe proche de ses clients" },
+    { image: getImage("drone"), caption: "Drone : des vues aériennes pour les grands sites" },
+    { image: getImage("intervention1"), caption: "Station totale : relevés d’ouvrages et de berges" },
+  ];
   const team = getImage("team");
   const interventions = [
     { image: getImage("intervention1"), caption: "Relevé topographique" },
@@ -50,22 +57,9 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <figure className="grid gap-4 lg:col-span-6 lg:pl-4">
-            <div data-intro="image" className="corner-marks text-teal">
-              <Photo
-                image={hero}
-                preload
-                parallax
-                badge
-                sizes="(min-width: 1024px) 46vw, 100vw"
-                className="aspect-[4/3] lg:aspect-[11/10]"
-              />
-            </div>
-            <figcaption data-intro="fade" className="label flex items-center gap-3 text-mist/80">
-              <span aria-hidden="true" className="h-px w-8 bg-teal" />
-              Mesurer, implanter, contrôler : chaque mission commence sur le terrain
-            </figcaption>
-          </figure>
+          <div className="lg:col-span-6 lg:pl-4">
+            <HeroSlideshow slides={heroSlides} sizes="(min-width: 1024px) 46vw, 100vw" />
+          </div>
         </div>
 
         {/* Règle graduée : accès direct aux prestations */}

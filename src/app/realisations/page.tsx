@@ -40,6 +40,7 @@ export default function RealisationsPage() {
         eyebrow="Réalisations"
         title="Des missions concrètes, sur le terrain."
         text="Voici le type de missions que nous réalisons. Chaque fiche présente le besoin du client, le travail effectué et les documents remis."
+        image={getImage("implantation")}
       />
 
       <section className="py-16 md:py-20">

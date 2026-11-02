@@ -31,6 +31,7 @@ export default function ServicesPage() {
         eyebrow={`${services.length} domaines d’intervention`}
         title="Une expertise adaptée à chaque projet de terrain."
         text="Quatre domaines d’intervention, du bornage d’une parcelle au suivi d’un chantier de travaux publics."
+        image={getImage("heroServices")}
       >
         <nav aria-label="Aller à une prestation" className="pt-4" data-intro="fade">
           <ul className="flex flex-wrap gap-2">
