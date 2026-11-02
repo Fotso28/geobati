@@ -1,4 +1,4 @@
-import { Drone, FileSearch, HardHat, LandPlot, LayoutGrid, Mountain, type LucideProps } from "lucide-react";
+import { Construction, LandPlot, LayoutGrid, Mountain, type LucideProps } from "lucide-react";
 import type { ServiceIcon as ServiceIconName } from "@/content/services";
 
 export function WhatsAppIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
@@ -30,12 +30,10 @@ export function StationMark({ className }: { className?: string }) {
 }
 
 const serviceIcons = {
-  bornage: LandPlot,
+  foncier: LandPlot,
   topographie: Mountain,
-  lotissement: LayoutGrid,
-  implantation: HardHat,
-  drone: Drone,
-  conseil: FileSearch,
+  urbanisme: LayoutGrid,
+  travaux: Construction,
 } satisfies Record<ServiceIconName, React.ComponentType<LucideProps>>;
 
 export function ServiceIcon({ name, ...props }: { name: ServiceIconName } & LucideProps) {

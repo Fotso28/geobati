@@ -11,7 +11,7 @@ import { RealisationsExplorer } from "@/components/cards/RealisationsExplorer";
 export const metadata: Metadata = {
   title: "Nos réalisations",
   description:
-    "Bornage, topographie, implantation, lotissement, drone : découvrez le type de missions que le cabinet GéoBati réalise sur le terrain.",
+    "Foncier, topographie, urbanisme, travaux publics : découvrez le type de missions que réalise GéoBati, cabinet de géomètre expert à Douala.",
   alternates: { canonical: "/realisations" },
 };
 

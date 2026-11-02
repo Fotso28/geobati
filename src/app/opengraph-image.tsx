@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
 
-export const alt = `${site.name} · Cabinet de géomètre au Cameroun`;
+export const alt = `${site.name} · Cabinet de géomètre expert au Cameroun`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -27,10 +27,10 @@ export default async function OpenGraphImage() {
         <img src={logoSrc} width={477} height={186} alt="" />
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ fontSize: 62, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2, maxWidth: 960 }}>
-            Vos projets méritent de partir sur des bases solides.
+            Cabinet de géomètre expert à Douala, Cameroun
           </div>
           <div style={{ display: "flex", fontSize: 27, color: "#30b0b4" }}>
-            Bornage · Topographie · Lotissement · Implantation · Conseil foncier
+            Foncier · Topographie · Urbanisme · Travaux publics
           </div>
         </div>
       </div>

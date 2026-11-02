@@ -63,6 +63,26 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
         }
       />
 
+      {/* Prestations du domaine */}
+      <section className="border-b border-line bg-white py-20 md:py-24">
+        <div className="shell grid gap-12">
+          <SectionHeading
+            eyebrow={`${service.prestations.length} prestations`}
+            title="Le détail de nos prestations"
+            text={service.summary}
+          />
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {service.prestations.map((prestation) => (
+              <li key={prestation.title} className="grid content-start gap-3 border border-line bg-paper p-6 md:p-7" data-reveal="">
+                <div aria-hidden="true" className="cote w-12 text-teal" />
+                <h3 className="text-h3">{prestation.title}</h3>
+                <p className="text-slate">{prestation.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Situations */}
       <section className="py-20 md:py-24">
         <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-10">

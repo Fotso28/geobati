@@ -9,14 +9,13 @@ import type { ImageKey } from "./images";
  * pour la localité et les photos, puis passez `illustrative` à `false`.
  */
 
-export type RealisationCategory = "bornage" | "topographie" | "chantier" | "lotissement" | "drone";
+export type RealisationCategory = "foncier" | "topographie" | "urbanisme" | "travaux-publics";
 
 export const realisationCategories: { key: RealisationCategory; label: string }[] = [
-  { key: "bornage", label: "Bornage" },
+  { key: "foncier", label: "Foncier" },
   { key: "topographie", label: "Topographie" },
-  { key: "chantier", label: "Chantier" },
-  { key: "lotissement", label: "Lotissement" },
-  { key: "drone", label: "Drone et cartographie" },
+  { key: "urbanisme", label: "Urbanisme" },
+  { key: "travaux-publics", label: "Travaux publics" },
 ];
 
 export type Realisation = {
@@ -56,8 +55,8 @@ export const realisations: Realisation[] = [
   {
     slug: "delimitation-parcelle-avant-construction",
     title: "Délimitation d’une parcelle avant construction",
-    category: "bornage",
-    serviceSlug: "bornage",
+    category: "foncier",
+    serviceSlug: "prestations-foncieres",
     locality: null,
     mission: "Repérage des limites et explication des résultats au propriétaire.",
     context:
@@ -73,8 +72,8 @@ export const realisations: Realisation[] = [
   {
     slug: "implantation-batiment-residentiel",
     title: "Implantation d’un bâtiment résidentiel",
-    category: "chantier",
-    serviceSlug: "implantation",
+    category: "topographie",
+    serviceSlug: "topographie",
     locality: null,
     mission: "Implantation des axes et des niveaux avant les fondations.",
     context:
@@ -90,8 +89,8 @@ export const realisations: Realisation[] = [
   {
     slug: "etude-prealable-division-terrain",
     title: "Étude préalable à la division d’un terrain",
-    category: "lotissement",
-    serviceSlug: "lotissement",
+    category: "urbanisme",
+    serviceSlug: "urbanisme-amenagement",
     locality: null,
     mission: "Analyse du terrain et proposition d’une démarche de découpage.",
     context:
@@ -105,10 +104,10 @@ export const realisations: Realisation[] = [
     illustrative: true,
   },
   {
-    slug: "cartographie-aerienne-site-etendu",
-    title: "Cartographie aérienne d’un site étendu",
-    category: "drone",
-    serviceSlug: "drone-cartographie",
+    slug: "cartographie-aerienne-chantier-infrastructure",
+    title: "Cartographie aérienne d’un chantier d’infrastructure",
+    category: "travaux-publics",
+    serviceSlug: "travaux-publics",
     locality: null,
     mission: "Prises de vue par drone et production d’une orthophoto du site.",
     context:
@@ -122,10 +121,10 @@ export const realisations: Realisation[] = [
     illustrative: true,
   },
   {
-    slug: "suivi-topographique-chantier",
-    title: "Suivi topographique d’un chantier",
-    category: "chantier",
-    serviceSlug: "implantation",
+    slug: "suivi-topographique-chantier-terrassement",
+    title: "Suivi topographique d’un chantier de terrassement",
+    category: "travaux-publics",
+    serviceSlug: "travaux-publics",
     locality: null,
     mission: "Contrôles de position et de niveaux à des étapes clés du chantier.",
     context:

@@ -1,6 +1,6 @@
 # GéoBati — site vitrine du cabinet de géomètre
 
-Site Next.js d'un cabinet de géomètre au Cameroun (nom provisoire : **GéoBati**).
+Site Next.js de GéoBati, cabinet de géomètre expert à Douala (Cameroun).
 Son objectif : conduire chaque visiteur, depuis une publicité, Google ou un réseau social, vers une conversation WhatsApp avec le cabinet.
 
 **Parcours :** publicité ou recherche → page adaptée au besoin → explications rassurantes → formulaire court → message WhatsApp prérempli, que le visiteur relit et envoie lui-même.
@@ -27,7 +27,7 @@ Toutes les pages sont générées en statique au moment du build.
 |---|---|
 | Numéro WhatsApp : **+237 655 03 08 15**, déjà configuré | `src/content/site.ts` (ou `NEXT_PUBLIC_WHATSAPP_NUMBER` pour le remplacer) |
 | Adresse publique du site | `.env.local` → `NEXT_PUBLIC_SITE_URL` |
-| Téléphone, e-mail, adresse, horaires, zones d'intervention, réseaux | `src/content/site.ts` |
+| Zones d'intervention, réseaux sociaux (téléphone, e-mail, adresse et horaires déjà renseignés) | `src/content/site.ts` |
 | Photos | `public/images/` (voir plus bas) |
 | Présentation, mot du responsable, équipe, matériel, qualifications | `src/content/about.ts` |
 | Liste des prestations réellement proposées | `src/content/services.ts` |
@@ -75,18 +75,20 @@ Passez `illustration: false` uniquement pour une vraie photo du cabinet, publié
 | Point d'entrée | Ce qui se passe |
 |---|---|
 | Bouton WhatsApp flottant (toutes les pages sauf le formulaire) | Message général |
-| Page d'un service, bouton principal | Formulaire avec la prestation présélectionnée |
-| Page d'un service, « Continuer sur WhatsApp » | Message direct sur la prestation |
+| Page d'un domaine, bouton principal | Formulaire avec le domaine présélectionné |
+| Page d'un domaine, « Continuer sur WhatsApp » | Message direct sur le domaine |
 | Fiche réalisation, « J'ai un projet similaire » | Formulaire avec la prestation et la référence du projet |
 | Article de conseil, « Poser une question » | Message direct qui cite l'article |
 | Page Contact | Formulaire court vers WhatsApp |
 
 Le formulaire `/demande-de-devis` accepte deux paramètres, utiles pour les publicités :
 
-- `?service=` : `bornage`, `topographie`, `lotissement`, `implantation`, `drone-cartographie`, `conseil-foncier` ou `a-definir` ;
+- `?service=` : `prestations-foncieres`, `topographie`, `urbanisme-amenagement`, `travaux-publics` ou `a-definir` ;
 - `&ref=` : identifiant d'une réalisation (ex. `implantation-batiment-residentiel`).
 
-Pour une publicité ciblée, faites pointer l'annonce directement vers la page du service (ex. `/services/bornage`), ou vers `/demande-de-devis?service=bornage`.
+Pour une publicité ciblée, faites pointer l'annonce directement vers la page du domaine (ex. `/services/prestations-foncieres`), ou vers `/demande-de-devis?service=prestations-foncieres`.
+
+Les anciennes adresses de prestations (`/services/bornage`, `/services/implantation`, etc.) redirigent vers le domaine correspondant (`next.config.ts`).
 
 Aucune donnée n'est stockée par le site : le message part de l'application WhatsApp du visiteur.
 Chaque clic vers WhatsApp déclenche un événement `whatsapp_click` (et `Contact` pour Meta Pixel) si Google Analytics, Google Tag Manager ou Meta Pixel sont installés plus tard (`src/components/layout/Analytics.tsx`).

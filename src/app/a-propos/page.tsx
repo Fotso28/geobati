@@ -13,7 +13,7 @@ import { DraftNote, JsonLd, SectionHeading } from "@/components/ui/primitives";
 export const metadata: Metadata = {
   title: "Le cabinet et son équipe",
   description:
-    "Découvrez le cabinet de géomètre GéoBati : sa démarche, son équipe et le matériel utilisé pour vos projets de terrain au Cameroun.",
+    "GéoBati, cabinet de géomètre expert à Yassa, Douala : sa démarche, son équipe, ses domaines d’intervention et le matériel utilisé.",
   alternates: { canonical: "/a-propos" },
 };
 

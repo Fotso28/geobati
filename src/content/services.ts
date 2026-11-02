@@ -1,12 +1,12 @@
 import type { ImageKey } from "./images";
 
 /**
- * Prestations du cabinet.
- * La liste doit correspondre aux prestations réellement proposées :
- * retirez ou ajoutez une entrée ici, les pages et menus suivent automatiquement.
+ * Domaines d'intervention du cabinet.
+ * Chaque domaine a sa page (/services/<slug>) et regroupe plusieurs prestations.
+ * Retirez ou ajoutez une entrée ici : les pages, menus et formulaires suivent automatiquement.
  */
 
-export type ServiceIcon = "bornage" | "topographie" | "lotissement" | "implantation" | "drone" | "conseil";
+export type ServiceIcon = "foncier" | "topographie" | "urbanisme" | "travaux";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -22,6 +22,8 @@ export type Service = {
   visitorQuestion: string;
   summary: string;
   examples: string[];
+  /** Prestations proposées dans ce domaine. */
+  prestations: { title: string; text: string }[];
   hero: { title: string; text: string };
   ctaLabel: string;
   situations: string[];
@@ -29,53 +31,73 @@ export type Service = {
   prepare: string[];
   faq: FaqItem[];
   closing: { title: string; text: string };
-  /** Début du message WhatsApp envoyé depuis la page du service. */
+  /** Début du message WhatsApp envoyé depuis la page du domaine. */
   whatsappIntro: string;
   seo: { title: string; description: string };
 };
 
-const stepsNote =
+export const servicesStepsNote =
   "Les étapes exactes sont précisées avec le cabinet selon la nature de la mission.";
-
-export const servicesStepsNote = stepsNote;
 
 export const services: Service[] = [
   {
-    slug: "bornage",
-    name: "Bornage et délimitation",
-    shortName: "Bornage",
-    icon: "bornage",
+    slug: "prestations-foncieres",
+    name: "Prestations foncières",
+    shortName: "Foncier",
+    icon: "foncier",
     image: "bornage",
-    need: "Je veux connaître les limites de mon terrain",
-    visitorQuestion: "Où s’arrête exactement mon terrain ?",
+    need: "Je veux sécuriser les limites ou le dossier de mon terrain",
+    visitorQuestion: "Comment sécuriser mon terrain et mon dossier foncier ?",
     summary:
-      "Identifier, matérialiser et documenter les limites d’une parcelle, avant un achat, une construction ou une démarche foncière.",
+      "Bornage, délimitation, morcellement et dossiers techniques fonciers, pour sécuriser vos terrains, vos achats et vos ventes.",
     examples: [
-      "Repérer les limites d’une parcelle avant d’y construire",
-      "Préparer une acquisition ou une vente",
-      "Comprendre une démarche de délimitation",
+      "Borner ou délimiter une parcelle",
+      "Diviser un terrain par morcellement",
+      "Préparer le dossier technique d’une immatriculation",
+    ],
+    prestations: [
+      {
+        title: "Bornage et délimitation",
+        text: "Identification et matérialisation des limites d’une parcelle, à partir des documents existants et des repères du terrain.",
+      },
+      {
+        title: "Morcellement",
+        text: "Division d’un terrain en plusieurs parcelles, avec les plans et documents techniques nécessaires.",
+      },
+      {
+        title: "Dossiers techniques fonciers",
+        text: "Plans et pièces techniques pour les procédures d’immatriculation, de mutation ou de régularisation.",
+      },
+      {
+        title: "Vérification avant achat",
+        text: "Contrôle de la concordance entre le terrain, ses limites et les documents présentés par le vendeur.",
+      },
+      {
+        title: "Conseil foncier",
+        text: "Explication de vos documents et des démarches à engager, avant toute décision.",
+      },
     ],
     hero: {
-      title: "Clarifiez les limites de votre terrain.",
-      text: "Vous souhaitez mieux identifier les limites d’une parcelle ou préparer une démarche liée à votre terrain ? Parlons de votre situation pour identifier l’accompagnement adapté.",
+      title: "Sécurisez vos terrains et vos dossiers fonciers.",
+      text: "Bornage, morcellement, dossiers techniques : votre géomètre expert établit des limites fiables et des documents conformes, avant une construction, un achat ou une vente.",
     },
     ctaLabel: "Parler de mon terrain",
     situations: [
-      "Vous souhaitez mieux connaître les limites d’une parcelle.",
-      "Vous préparez une acquisition ou un projet sur un terrain.",
-      "Vous souhaitez obtenir des informations sur une démarche de délimitation.",
-      "Vous avez une question concernant votre dossier foncier.",
+      "Vous voulez connaître ou matérialiser les limites de votre parcelle.",
+      "Vous souhaitez diviser un terrain pour le vendre ou le partager.",
+      "Vous préparez l’immatriculation ou la régularisation d’un terrain.",
+      "Vous envisagez un achat et voulez vérifier ce qui vous est présenté.",
     ],
     steps: [
-      { title: "Premier échange", text: "Vous nous décrivez le terrain, sa localité et ce que vous souhaitez savoir." },
-      { title: "Analyse des documents", text: "Nous examinons les informations et documents disponibles sur la parcelle." },
-      { title: "Intervention définie", text: "Nous vous proposons l’intervention adaptée et vous expliquons son déroulement." },
-      { title: "Terrain et résultats", text: "Nous intervenons sur place puis vous présentons les résultats convenus." },
+      { title: "Premier échange", text: "Vous nous décrivez le terrain, sa localité et votre objectif." },
+      { title: "Analyse des documents", text: "Nous examinons les titres, plans et pièces disponibles sur la parcelle." },
+      { title: "Intervention sur le terrain", text: "Nous réalisons les mesures, la recherche des limites ou le bornage convenus." },
+      { title: "Remise des documents", text: "Nous vous remettons les plans et pièces techniques, et vous les expliquons." },
     ],
     prepare: [
       "La localité du terrain et, si possible, un point de repère.",
-      "Une description de la situation, avec vos mots.",
-      "Les documents déjà disponibles, s’il y en a (photos ou copies suffisent).",
+      "Une description de votre situation et de votre objectif.",
+      "Les documents disponibles : titre foncier, plan, attestation… (photos ou copies).",
       "Les questions que vous souhaitez poser.",
     ],
     faq: [
@@ -85,79 +107,106 @@ export const services: Service[] = [
           "Non. Écrivez-nous avec ce dont vous disposez. Nous vous indiquerons ensuite les documents utiles pour la suite.",
       },
       {
-        question: "Intervenez-vous dans ma localité ?",
+        question: "Combien de temps prend un bornage ou un morcellement ?",
         answer:
-          "Indiquez la localité de votre terrain dans votre message : nous vous confirmerons les possibilités d’intervention.",
+          "Cela dépend de la situation du terrain et de la procédure applicable. Nous vous donnons une estimation après l’analyse des documents.",
+      },
+      {
+        question: "Pouvez-vous vérifier un terrain avant que je l’achète ?",
+        answer:
+          "Nous vérifions sur le terrain la concordance avec les plans et documents présentés. Les vérifications administratives se font auprès des services compétents ; nous vous indiquons lesquelles.",
       },
       {
         question: "Comment connaître le coût de l’intervention ?",
         answer:
-          "Le coût dépend de la mission, de la superficie, de l’accès au terrain et des documents disponibles. Un premier échange permet d’établir un devis adapté.",
-      },
-      {
-        question: "Que faire si je ne connais pas la superficie exacte ?",
-        answer: "Ce n’est pas un problème. Une estimation ou une simple description suffit pour commencer.",
+          "Le coût dépend de la prestation, de la superficie, de l’accès au terrain et des documents disponibles. Un premier échange permet d’établir un devis adapté.",
       },
     ],
     closing: {
       title: "Parlons de votre terrain.",
-      text: "Décrivez-nous votre situation : notre équipe vous indiquera les informations utiles pour commencer.",
+      text: "Décrivez-nous votre situation : nous vous indiquerons les documents utiles et la démarche à suivre.",
     },
-    whatsappIntro: "Bonjour, je souhaite des informations sur le bornage et la délimitation de mon terrain.",
+    whatsappIntro: "Bonjour, je souhaite des informations sur une prestation foncière (bornage, morcellement, dossier foncier).",
     seo: {
-      title: "Bornage et délimitation de terrain au Cameroun",
+      title: "Bornage, morcellement et dossiers fonciers à Douala",
       description:
-        "Identifier et documenter les limites d’une parcelle avant un achat ou une construction. Décrivez votre situation au cabinet GéoBati.",
+        "Cabinet de géomètre expert à Douala : bornage, délimitation, morcellement, dossiers techniques fonciers et vérification avant achat au Cameroun.",
     },
   },
   {
     slug: "topographie",
-    name: "Topographie et relevés",
+    name: "Topographie et mesures techniques",
     shortName: "Topographie",
     icon: "topographie",
     image: "topographie",
-    need: "Je veux mesurer ou cartographier un terrain",
-    visitorQuestion: "Comment obtenir une représentation précise de mon terrain ?",
+    need: "J’ai besoin de mesures précises pour mon projet ou mon chantier",
+    visitorQuestion: "Comment obtenir des mesures fiables de mon terrain ou de mon ouvrage ?",
     summary:
-      "Mesurer le relief, les dimensions et les éléments existants d’un terrain pour produire un plan fiable, base de tout projet.",
+      "Levés topographiques, nivellement, implantation d’ouvrages et contrôles de chantier, avec un matériel adapté à chaque mission.",
     examples: [
-      "Fournir un plan à l’architecte avant la conception",
-      "Connaître le relief et les pentes d’une parcelle",
-      "Représenter bâtiments, voiries et arbres existants",
+      "Lever un plan topographique avant la conception",
+      "Implanter un bâtiment avant les fondations",
+      "Contrôler la position et les niveaux d’un ouvrage",
+    ],
+    prestations: [
+      {
+        title: "Levés topographiques",
+        text: "Plans cotés avec relief, courbes de niveau et éléments existants, pour concevoir ou présenter un projet.",
+      },
+      {
+        title: "Nivellement",
+        text: "Mesure des altitudes et des pentes pour l’assainissement, les terrassements et les ouvrages.",
+      },
+      {
+        title: "Implantation d’ouvrages",
+        text: "Report sur le terrain des axes, angles et niveaux prévus par les plans, avant les fondations.",
+      },
+      {
+        title: "Contrôle et suivi de chantier",
+        text: "Vérification de la position et des niveaux des ouvrages aux étapes clés de la construction.",
+      },
+      {
+        title: "Calcul de surfaces et de volumes",
+        text: "Superficies, cubatures de déblais et de remblais, métrés à partir des mesures.",
+      },
+      {
+        title: "Drone et orthophoto",
+        text: "Prises de vue aériennes pour documenter rapidement un site étendu.",
+      },
     ],
     hero: {
-      title: "Une représentation précise de votre terrain.",
-      text: "Relief, dimensions, éléments existants : un relevé topographique vous donne une base fiable pour concevoir, chiffrer ou présenter votre projet.",
+      title: "Des mesures précises pour bâtir sur du solide.",
+      text: "Levés, nivellement, implantation, contrôles : nous fournissons des mesures fiables à chaque étape de votre projet, de la conception à la réception des travaux.",
     },
-    ctaLabel: "Demander un relevé",
+    ctaLabel: "Demander un levé",
     situations: [
-      "Votre architecte ou votre bureau d’études a besoin d’un plan du terrain.",
-      "Vous voulez connaître le relief, les pentes et les points bas de votre parcelle.",
-      "Vous devez représenter les éléments existants : constructions, clôtures, voiries, arbres.",
-      "Vous préparez un dossier qui demande un plan à jour du terrain.",
+      "Votre architecte ou bureau d’études a besoin d’un plan topographique.",
+      "Vous démarrez une construction et devez implanter les fondations.",
+      "Vous voulez contrôler la position ou les niveaux d’un ouvrage en cours.",
+      "Vous devez calculer une surface ou un volume de terrassement.",
     ],
     steps: [
-      { title: "Premier échange", text: "Nous parlons du terrain et de l’usage prévu du plan." },
+      { title: "Premier échange", text: "Nous parlons du terrain, du projet et de l’usage prévu des mesures." },
       { title: "Cahier des charges", text: "Nous fixons ensemble le niveau de détail, l’échelle et les documents attendus." },
-      { title: "Relevés sur place", text: "Nous mesurons le terrain avec un matériel adapté à la surface et au relief." },
-      { title: "Plan remis", text: "Nous traitons les mesures et vous remettons les documents convenus." },
+      { title: "Mesures sur le terrain", text: "Nous intervenons avec la station totale, le GNSS, le niveau ou le drone selon la mission." },
+      { title: "Résultats remis", text: "Nous traitons les mesures et vous remettons les plans et fichiers convenus." },
     ],
     prepare: [
-      "La localité et les conditions d’accès au terrain.",
-      "L’usage du plan : construction, étude, dossier, vente.",
-      "Les plans ou croquis existants, même anciens.",
-      "Le contact de votre architecte ou bureau d’études, si vous en avez un.",
+      "La localité et les conditions d’accès au terrain ou au chantier.",
+      "L’usage des mesures : conception, implantation, contrôle, métré.",
+      "Les plans existants, même anciens.",
+      "Le contact de votre architecte, bureau d’études ou entreprise.",
     ],
     faq: [
       {
-        question: "Quelle différence entre un relevé topographique et un bornage ?",
+        question: "Quelle différence entre un levé topographique et un bornage ?",
         answer:
-          "Le relevé décrit le terrain tel qu’il est : relief, dimensions, éléments présents. Le bornage porte sur les limites de propriété. Les deux peuvent se compléter selon votre projet.",
+          "Le levé décrit le terrain tel qu’il est : relief, dimensions, éléments présents. Le bornage porte sur les limites de propriété. Les deux se complètent souvent.",
       },
       {
         question: "Quels documents vais-je recevoir ?",
         answer:
-          "Ils sont définis avant l’intervention, selon l’usage prévu : plan coté, courbes de niveau, points altimétriques, fichiers numériques pour l’architecte.",
+          "Ils sont définis avant l’intervention : plan coté, courbes de niveau, profils, fichiers numériques pour l’architecte, rapport d’implantation ou de contrôle.",
       },
       {
         question: "Combien de temps faut-il ?",
@@ -166,67 +215,88 @@ export const services: Service[] = [
       },
       {
         question: "Comment connaître le coût ?",
-        answer:
-          "Décrivez-nous le terrain et l’usage du plan. Nous vous proposerons un devis après ce premier échange.",
+        answer: "Décrivez-nous le terrain et l’usage des mesures. Nous vous proposerons un devis après ce premier échange.",
       },
     ],
     closing: {
-      title: "Parlons de votre relevé.",
-      text: "Indiquez-nous la localité du terrain et l’usage prévu du plan : nous vous dirons comment procéder.",
+      title: "Parlons de vos mesures.",
+      text: "Indiquez-nous la localité, le projet et l’usage prévu : nous vous dirons comment procéder.",
     },
-    whatsappIntro: "Bonjour, je souhaite des informations sur un relevé topographique.",
+    whatsappIntro: "Bonjour, je souhaite des informations sur un levé topographique ou des mesures techniques.",
     seo: {
-      title: "Relevé topographique et plan de terrain au Cameroun",
+      title: "Topographie, levés et implantation à Douala",
       description:
-        "Relief, dimensions, éléments existants : obtenez un plan topographique fiable pour concevoir ou présenter votre projet. Échangez avec GéoBati.",
+        "Levés topographiques, nivellement, implantation d’ouvrages, contrôles de chantier, cubatures et drone : les mesures techniques de votre géomètre expert à Douala.",
     },
   },
   {
-    slug: "lotissement",
-    name: "Lotissement et aménagement",
-    shortName: "Lotissement",
-    icon: "lotissement",
+    slug: "urbanisme-amenagement",
+    name: "Urbanisme et aménagement",
+    shortName: "Urbanisme",
+    icon: "urbanisme",
     image: "lotissement",
-    need: "Je souhaite diviser ou aménager un terrain",
-    visitorQuestion: "Comment préparer la division ou l’aménagement de mon terrain ?",
+    need: "Je veux lotir ou aménager un terrain",
+    visitorQuestion: "Comment préparer le lotissement ou l’aménagement de mon terrain ?",
     summary:
-      "Étudier le découpage d’un terrain en lots, les accès et les espaces communs, et accompagner les étapes du projet.",
+      "Études de lotissement, plans d’aménagement et accompagnement des projets urbains, du découpage des lots aux voies d’accès.",
     examples: [
-      "Diviser une parcelle en plusieurs lots",
-      "Prévoir les voies d’accès et les espaces communs",
-      "Vérifier la faisabilité d’un découpage",
+      "Étudier un projet de lotissement",
+      "Concevoir un plan d’aménagement ou de masse",
+      "Préparer les pièces d’un dossier d’urbanisme",
+    ],
+    prestations: [
+      {
+        title: "Études de lotissement",
+        text: "Découpage en lots, voies d’accès et espaces communs, dans le respect des règles applicables.",
+      },
+      {
+        title: "Plans d’aménagement et plans de masse",
+        text: "Organisation d’un site : implantation des bâtiments, circulations, espaces libres.",
+      },
+      {
+        title: "Études de faisabilité",
+        text: "Analyse du terrain et de ses contraintes avant d’engager un projet.",
+      },
+      {
+        title: "Voirie et réseaux",
+        text: "Tracé des voies et des réseaux, en lien avec les bureaux d’études.",
+      },
+      {
+        title: "Dossiers d’urbanisme",
+        text: "Plans et pièces techniques pour vos démarches auprès des services compétents.",
+      },
     ],
     hero: {
-      title: "Préparez la division ou l’aménagement de votre terrain.",
-      text: "Diviser une parcelle, organiser des lots, prévoir les accès : un projet de lotissement se prépare avec méthode. Échangeons sur vos objectifs.",
+      title: "Donnez forme à vos projets d’aménagement.",
+      text: "Lotissement, plan d’aménagement, étude de faisabilité : nous vous aidons à transformer un terrain en projet réaliste, conforme aux règles et prêt à être réalisé.",
     },
     ctaLabel: "Présenter mon projet",
     situations: [
-      "Vous souhaitez diviser un terrain en plusieurs lots.",
-      "Vous envisagez un aménagement avec voies d’accès et espaces communs.",
-      "Vous voulez vérifier si un découpage est réaliste avant d’aller plus loin.",
-      "Vous vous interrogez sur les étapes et les intervenants d’un lotissement.",
+      "Vous souhaitez lotir un terrain pour vendre ou construire des lots.",
+      "Vous devez organiser un site : bâtiments, voies, espaces communs.",
+      "Vous voulez vérifier qu’un projet est réalisable avant d’investir.",
+      "Vous préparez des démarches auprès des services d’urbanisme.",
     ],
     steps: [
-      { title: "Vos objectifs", text: "Nous échangeons sur le terrain, le nombre de lots envisagé et l’usage prévu." },
+      { title: "Vos objectifs", text: "Nous échangeons sur le terrain, le programme envisagé et vos délais." },
       { title: "Analyse du terrain", text: "Nous étudions les documents, le relief et les contraintes connues." },
-      { title: "Démarche proposée", text: "Nous vous présentons les études nécessaires et l’ordre des étapes." },
-      { title: "Accompagnement", text: "Nous réalisons la mission convenue et restons votre interlocuteur technique." },
+      { title: "Proposition", text: "Nous vous présentons un découpage ou un plan d’aménagement et les étapes à suivre." },
+      { title: "Accompagnement", text: "Nous finalisons les plans et vous accompagnons dans la suite du projet." },
     ],
     prepare: [
       "La localité et la superficie approximative du terrain.",
       "Les documents fonciers disponibles.",
-      "Le nombre de lots ou le type d’aménagement envisagé.",
+      "Votre programme : nombre de lots, type de constructions, usage prévu.",
       "Vos délais, s’il y en a.",
     ],
     faq: [
       {
-        question: "Puis-je diviser mon terrain moi-même ?",
+        question: "Puis-je lotir mon terrain moi-même ?",
         answer:
-          "La division et le lotissement d’un terrain suivent des règles et des démarches précises. Lors du premier échange, nous vous expliquons les étapes et les intervenants qui s’appliquent à votre situation.",
+          "Le lotissement suit des règles et des démarches précises. Lors du premier échange, nous vous expliquons les étapes et les intervenants qui s’appliquent à votre situation.",
       },
       {
-        question: "Faut-il un relevé avant d’étudier le découpage ?",
+        question: "Faut-il un levé avant d’étudier le découpage ?",
         answer:
           "Le plus souvent, oui : un plan fiable du terrain permet de proposer un découpage réaliste. Nous vérifions d’abord ce qui existe déjà.",
       },
@@ -246,217 +316,101 @@ export const services: Service[] = [
     },
     whatsappIntro: "Bonjour, je souhaite des informations pour un projet de lotissement ou d’aménagement.",
     seo: {
-      title: "Lotissement et division de terrain au Cameroun",
+      title: "Lotissement, urbanisme et aménagement à Douala",
       description:
-        "Diviser une parcelle, organiser des lots, prévoir les accès : préparez votre projet de lotissement avec le cabinet GéoBati.",
+        "Études de lotissement, plans d’aménagement, études de faisabilité et dossiers d’urbanisme avec un cabinet de géomètre expert à Douala.",
     },
   },
   {
-    slug: "implantation",
-    name: "Implantation et suivi de chantier",
-    shortName: "Implantation",
-    icon: "implantation",
-    image: "implantation",
-    need: "Je prépare une construction",
-    visitorQuestion: "Comment préparer l’implantation de mon ouvrage ?",
+    slug: "travaux-publics",
+    name: "Travaux publics",
+    shortName: "Travaux publics",
+    icon: "travaux",
+    image: "travauxPublics",
+    need: "Je conduis un chantier de route, de voirie ou d’ouvrage",
+    visitorQuestion: "Comment assurer le suivi topographique d’un chantier de travaux publics ?",
     summary:
-      "Reporter sur le terrain la position exacte d’un ouvrage avant les fondations, puis contrôler les repères en cours de chantier.",
+      "Levés, implantations et suivi topographique pour les routes, voiries, ouvrages d’art et terrassements, aux côtés des entreprises et des maîtres d’ouvrage.",
     examples: [
-      "Implanter les axes et les angles d’un bâtiment",
-      "Donner des niveaux de référence à l’entreprise",
-      "Contrôler un ouvrage en cours de construction",
+      "Lever un corridor avant l’étude d’une route",
+      "Implanter l’axe d’une voirie",
+      "Suivre les volumes de terrassement",
+    ],
+    prestations: [
+      {
+        title: "Levés de corridors et d’emprises",
+        text: "Relevés préalables aux études de routes, pistes, réseaux et ouvrages.",
+      },
+      {
+        title: "Implantation d’axes et d’ouvrages",
+        text: "Axes routiers, profils, ouvrages d’art et réseaux reportés sur le terrain.",
+      },
+      {
+        title: "Profils en long et en travers",
+        text: "Profils pour le calcul des terrassements et le contrôle des pentes.",
+      },
+      {
+        title: "Suivi des terrassements",
+        text: "Mesures d’avancement et calcul des volumes de déblais et de remblais.",
+      },
+      {
+        title: "Contrôle et récolement",
+        text: "Vérification des ouvrages réalisés et plans de récolement en fin de chantier.",
+      },
     ],
     hero: {
-      title: "Implantez votre ouvrage au bon endroit.",
-      text: "Avant les fondations, l’implantation reporte sur le terrain la position prévue de votre construction. Un repère juste au départ évite des corrections coûteuses ensuite.",
+      title: "Un appui topographique fiable pour vos chantiers.",
+      text: "Routes, voiries, ouvrages d’art, terrassements : nous accompagnons entreprises et maîtres d’ouvrage avec des levés, des implantations et un suivi rigoureux du chantier.",
     },
     ctaLabel: "Parler de mon chantier",
     situations: [
-      "Vous démarrez une construction et devez implanter les fondations.",
-      "Votre entreprise a besoin d’axes et de niveaux de référence fiables.",
-      "Vous voulez vérifier la position d’un ouvrage en cours de construction.",
-      "Vous construisez sur une parcelle dont les limites restent à confirmer.",
+      "Vous préparez l’étude d’une route, d’une piste ou d’une voirie.",
+      "Votre entreprise a besoin d’implantations fiables sur le chantier.",
+      "Vous devez suivre l’avancement et les volumes de terrassement.",
+      "Vous devez produire les plans de récolement d’un ouvrage.",
     ],
     steps: [
-      { title: "Premier échange", text: "Nous parlons du chantier, des plans et de la date de démarrage." },
-      { title: "Vérification des plans", text: "Nous contrôlons les plans et les repères disponibles sur le terrain." },
-      { title: "Implantation", text: "Nous matérialisons axes, angles et niveaux convenus avec l’entreprise." },
-      { title: "Contrôles", text: "Nous vous remettons les informations d’implantation et assurons les contrôles prévus." },
+      { title: "Premier échange", text: "Nous parlons du projet, de son emprise et du planning des travaux." },
+      { title: "Organisation de la mission", text: "Nous définissons les points d’appui, les livrables et la fréquence des interventions." },
+      { title: "Interventions sur le chantier", text: "Levés, implantations et contrôles au rythme de l’avancement des travaux." },
+      { title: "Rendus et récolement", text: "Nous remettons profils, calculs de volumes et plans de récolement." },
     ],
     prepare: [
-      "Le plan de masse ou les plans d’exécution.",
-      "La localité du chantier.",
-      "La date de démarrage prévue.",
-      "Le contact du chef de chantier ou de l’entreprise.",
+      "La localisation et l’emprise du projet.",
+      "Les plans du projet ou les études disponibles.",
+      "Le planning prévisionnel des travaux.",
+      "Le contact du conducteur de travaux ou du maître d’œuvre.",
     ],
     faq: [
       {
-        question: "À quel moment faire appel au géomètre ?",
+        question: "Pour qui intervenez-vous sur les chantiers ?",
         answer:
-          "Avant le début des terrassements et des fondations. Plus l’échange a lieu tôt, plus l’implantation s’organise facilement avec l’entreprise.",
+          "Pour les entreprises de travaux, les bureaux d’études et les maîtres d’ouvrage, publics ou privés. Décrivez-nous votre chantier et votre rôle dans le projet.",
       },
       {
-        question: "Les limites du terrain doivent-elles être connues ?",
+        question: "Pouvez-vous suivre tout le chantier ?",
         answer:
-          "C’est préférable, car l’ouvrage se positionne par rapport aux limites. Si elles sont incertaines, nous en parlons dès le premier échange.",
+          "Oui. L’intervention peut être ponctuelle ou régulière, selon le planning des travaux et les contrôles à réaliser.",
       },
       {
-        question: "Pouvez-vous intervenir en cours de chantier ?",
-        answer: "Oui, pour contrôler la position ou les niveaux d’un ouvrage déjà commencé. Décrivez-nous l’avancement.",
+        question: "Quels documents remettez-vous ?",
+        answer:
+          "Selon la mission : plans topographiques, profils en long et en travers, calculs de volumes, rapports de contrôle, plans de récolement.",
       },
       {
         question: "Comment connaître le coût ?",
-        answer: "Envoyez-nous les plans et la localité. Le devis dépend de l’ouvrage et des contrôles souhaités.",
+        answer: "Le devis dépend de l’emprise, de la durée du chantier et de la fréquence des interventions. Décrivez-nous votre projet.",
       },
     ],
     closing: {
       title: "Parlons de votre chantier.",
-      text: "Indiquez-nous la localité, le type d’ouvrage et la date de démarrage : nous organiserons l’implantation avec vous.",
+      text: "Indiquez-nous la localisation, le type d’ouvrage et le planning : nous organiserons l’appui topographique avec vous.",
     },
-    whatsappIntro: "Bonjour, je souhaite des informations sur l’implantation de mon chantier.",
+    whatsappIntro: "Bonjour, je souhaite des informations pour un chantier de travaux publics.",
     seo: {
-      title: "Implantation de bâtiment et suivi de chantier au Cameroun",
+      title: "Topographie pour travaux publics : routes, voiries, terrassements",
       description:
-        "Axes, angles et niveaux reportés sur le terrain avant les fondations, puis contrôlés en cours de chantier. Parlez de votre chantier à GéoBati.",
-    },
-  },
-  {
-    slug: "drone-cartographie",
-    name: "Drone et cartographie",
-    shortName: "Drone",
-    icon: "drone",
-    image: "drone",
-    need: "Je souhaite obtenir une vue d’ensemble",
-    visitorQuestion: "Comment visualiser ou documenter une grande surface ?",
-    summary:
-      "Photographies aériennes, orthophotos et modèles de terrain pour documenter rapidement un site étendu ou suivre un chantier.",
-    examples: [
-      "Documenter un grand terrain ou un site difficile d’accès",
-      "Suivre l’avancement d’un chantier",
-      "Disposer d’une image aérienne récente du site",
-    ],
-    hero: {
-      title: "Une vue d’ensemble de vos grandes surfaces.",
-      text: "Photographies aériennes, orthophotos, modèles de terrain : le drone complète les méthodes au sol pour documenter rapidement un site étendu.",
-    },
-    ctaLabel: "Demander une intervention",
-    situations: [
-      "Vous devez documenter un grand terrain ou un site difficile d’accès.",
-      "Vous souhaitez suivre l’avancement d’un chantier dans le temps.",
-      "Vous avez besoin d’une image aérienne récente et mesurable du site.",
-      "Vous voulez présenter un site à des partenaires ou à des investisseurs.",
-    ],
-    steps: [
-      { title: "Premier échange", text: "Nous parlons du site, de sa surface et de ce que vous voulez en obtenir." },
-      { title: "Préparation du vol", text: "Nous vérifions les conditions de vol et les autorisations nécessaires." },
-      { title: "Acquisition", text: "Nous réalisons les prises de vue, avec des points de contrôle au sol si besoin." },
-      { title: "Livrables", text: "Nous traitons les images et vous remettons les documents convenus." },
-    ],
-    prepare: [
-      "La localisation et l’étendue approximative du site.",
-      "L’objectif : suivi, plan, présentation, étude.",
-      "Vos délais.",
-      "Les contraintes d’accès connues.",
-    ],
-    faq: [
-      {
-        question: "Le drone remplace-t-il un relevé au sol ?",
-        answer:
-          "Pas toujours. Il couvre vite de grandes surfaces, mais la précision dépend de la méthode et des points de contrôle au sol. Nous vous conseillons la combinaison adaptée.",
-      },
-      {
-        question: "Faut-il une autorisation pour faire voler un drone ?",
-        answer:
-          "L’usage des drones est encadré. Nous vérifions les conditions applicables au site avant toute intervention.",
-      },
-      {
-        question: "Quels documents puis-je obtenir ?",
-        answer:
-          "Selon le besoin : photos aériennes, orthophoto (image aérienne redressée et mesurable), modèle numérique de terrain, plan.",
-      },
-      {
-        question: "Comment connaître le coût ?",
-        answer: "Le devis dépend de la surface, de l’accès au site et des livrables attendus. Décrivez-nous votre besoin.",
-      },
-    ],
-    closing: {
-      title: "Parlons de votre site.",
-      text: "Indiquez-nous la localisation, l’étendue et l’objectif : nous vous dirons quelle intervention convient.",
-    },
-    whatsappIntro: "Bonjour, je souhaite des informations sur une intervention par drone et la cartographie d’un site.",
-    seo: {
-      title: "Drone, orthophoto et cartographie au Cameroun",
-      description:
-        "Photographies aériennes, orthophotos et modèles de terrain pour documenter un site étendu ou suivre un chantier. Échangez avec GéoBati.",
-    },
-  },
-  {
-    slug: "conseil-foncier",
-    name: "Conseil et accompagnement foncier",
-    shortName: "Conseil foncier",
-    icon: "conseil",
-    image: "conseil",
-    need: "J’ai besoin de mieux comprendre mon dossier",
-    visitorQuestion: "Par où commencer avec mon dossier ?",
-    summary:
-      "Comprendre vos documents, identifier les vérifications techniques utiles et savoir quelles démarches engager.",
-    examples: [
-      "Savoir quoi vérifier avant d’acheter un terrain",
-      "Comprendre un plan ou un document foncier",
-      "Identifier la prestation dont vous avez besoin",
-    ],
-    hero: {
-      title: "Par où commencer avec votre dossier ?",
-      text: "Achat d’un terrain, documents à réunir, démarches à engager : nous vous aidons à y voir plus clair et à identifier les bonnes étapes.",
-    },
-    ctaLabel: "Poser ma question",
-    situations: [
-      "Vous envisagez d’acheter un terrain et voulez savoir quoi vérifier.",
-      "Vous avez des documents fonciers et souhaitez les comprendre.",
-      "Vous ne savez pas quelle prestation demander.",
-      "Vous préparez une démarche administrative liée à votre terrain.",
-    ],
-    steps: [
-      { title: "Écoute", text: "Vous nous expliquez votre situation et vos questions." },
-      { title: "Examen des documents", text: "Nous regardons les documents que vous nous transmettez." },
-      { title: "Explications", text: "Nous vous expliquons ce qu’ils indiquent et les démarches possibles." },
-      { title: "Suite proposée", text: "Si une intervention est utile, nous vous proposons la démarche adaptée." },
-    ],
-    prepare: [
-      "Une description de votre situation.",
-      "Les documents dont vous disposez (photos ou copies).",
-      "La localité du terrain.",
-      "La liste de vos questions.",
-    ],
-    faq: [
-      {
-        question: "Pouvez-vous me dire si un terrain est sûr à acheter ?",
-        answer:
-          "Un échange ne remplace pas les vérifications officielles. Nous vous expliquons les vérifications techniques utiles et vous orientons vers les services et professionnels compétents, comme les services des domaines et du cadastre ou un notaire.",
-      },
-      {
-        question: "Je ne comprends pas mes documents. Pouvez-vous m’aider ?",
-        answer: "Oui. Envoyez-nous des photos lisibles des documents et vos questions : nous vous expliquerons ce qu’ils contiennent.",
-      },
-      {
-        question: "Je ne sais pas de quelle prestation j’ai besoin.",
-        answer: "C’est fréquent. Décrivez votre projet avec vos mots, nous vous aiderons à identifier la suite.",
-      },
-      {
-        question: "Le conseil est-il payant ?",
-        answer:
-          "Le premier échange sert à comprendre votre besoin. Si une étude ou une intervention est nécessaire, nous vous proposons un devis avant de commencer.",
-      },
-    ],
-    closing: {
-      title: "Posez-nous votre question.",
-      text: "Expliquez votre situation avec vos mots, même si elle vous semble compliquée. Nous vous aiderons à identifier la suite.",
-    },
-    whatsappIntro: "Bonjour, j’ai une question sur mon dossier foncier.",
-    seo: {
-      title: "Conseil et accompagnement foncier au Cameroun",
-      description:
-        "Comprendre vos documents, savoir quoi vérifier avant d’acheter un terrain, identifier les démarches à engager. Posez votre question à GéoBati.",
+        "Levés de corridors, implantation d’axes, profils, suivi des terrassements et récolement : l’appui topographique d’un géomètre expert pour vos chantiers au Cameroun.",
     },
   },
 ];

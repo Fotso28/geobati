@@ -33,12 +33,13 @@ export function MobileMenu({
   items,
   services,
   whatsappHref,
-  whatsappDisplay,
+  phone,
 }: {
   items: readonly NavItem[];
   services: ServiceLink[];
   whatsappHref: string;
-  whatsappDisplay?: string;
+  /** Numéro d'appel du cabinet. */
+  phone?: { href: string; display: string };
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -232,7 +233,15 @@ export function MobileMenu({
             <WhatsAppIcon className="size-5" />
             Écrire sur WhatsApp
           </a>
-          {whatsappDisplay && <p className="text-center text-[0.85rem] text-slate">WhatsApp : {whatsappDisplay}</p>}
+          {phone && (
+            <a
+              href={`tel:${phone.href}`}
+              className="flex h-11 items-center justify-center gap-2 text-[0.95rem] font-semibold text-navy"
+            >
+              <Phone aria-hidden="true" className="size-4" />
+              Appeler le {phone.display}
+            </a>
+          )}
         </div>
       </div>
     </div>

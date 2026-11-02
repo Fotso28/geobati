@@ -19,7 +19,8 @@ export default function MentionsLegalesPage() {
           heading: "Éditeur du site",
           body: [
             `Le site ${site.name} est édité par ${site.legalName ?? "le cabinet (raison sociale à compléter)"}.`,
-            "Adresse, numéro d’immatriculation et responsable de la publication : à compléter.",
+            `Adresse : ${[site.address.street, site.address.locality, site.address.country].filter(Boolean).join(", ")}. Téléphone : ${site.phoneDisplay}. E-mail : ${site.email}.`,
+            "Numéro d’immatriculation et responsable de la publication : à compléter.",
           ],
         },
         {

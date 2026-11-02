@@ -8,13 +8,13 @@ import { whatsappUrl, generalMessage } from "@/lib/whatsapp";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import { DraftNote, JsonLd } from "@/components/ui/primitives";
+import { JsonLd } from "@/components/ui/primitives";
 import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez le cabinet de géomètre GéoBati : WhatsApp, téléphone, adresse et formulaire de contact. Décrivez votre projet de terrain au Cameroun.",
+    "Contactez GéoBati, cabinet de géomètre expert à Yassa, Douala : +237 655 03 08 15 (appel et WhatsApp), contact@geobati.com, du lundi au samedi de 8 h à 16 h.",
   alternates: { canonical: "/contact" },
 };
 
@@ -24,7 +24,7 @@ const breadcrumbs = [
 ];
 
 export default function ContactPage() {
-  const address = [site.address.street, site.address.locality, site.address.region].filter(Boolean).join(", ");
+  const address = [site.address.street, site.address.locality].filter(Boolean).join(", ");
   const rows = [
     {
       icon: <WhatsAppIcon className="size-5" />,
@@ -59,7 +59,7 @@ export default function ContactPage() {
       href: null,
     },
   ];
-  const subjects = [...services.map((service) => service.name), "Autre question"];
+  const subjects = [...services.map((service) => service.name), "Demande de devis", "Autre question"];
 
   return (
     <>
@@ -121,7 +121,6 @@ export default function ContactPage() {
                 </div>
               ))}
             </dl>
-            <DraftNote>Renseigner les coordonnées réelles dans src/content/site.ts (et le numéro WhatsApp dans .env).</DraftNote>
           </div>
 
           <div className="grid content-start gap-6 lg:col-span-7">

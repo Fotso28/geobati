@@ -31,8 +31,10 @@ export type SiteConfig = {
     region: string | null;
     country: string;
   };
-  /** Horaires d'ouverture, une ligne par plage. */
+  /** Horaires d'ouverture, une ligne par plage, tels qu'ils s'affichent. */
   hours: string[] | null;
+  /** Mêmes horaires au format schema.org (ex. "Mo-Sa 08:00-16:00"). */
+  openingHoursSchema: string[] | null;
   /** Lien Google Maps vers le cabinet, une fois l'adresse validée. */
   mapUrl: string | null;
   /** Zones d'intervention confirmées par le cabinet. */
@@ -60,20 +62,21 @@ export const site: SiteConfig = {
   tagline: "Géomètres bâtisseurs 3.0",
   legalName: null,
   description:
-    "Cabinet de géomètre au Cameroun : bornage et délimitation, topographie, lotissement, implantation de chantier, drone et conseil foncier.",
+    "Cabinet de géomètre expert à Douala, Cameroun : prestations foncières, topographie et mesures techniques, urbanisme et aménagement, travaux publics.",
   url: siteUrl(),
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "237655030815").replace(/\D/g, ""),
-  phoneDisplay: null,
-  phoneHref: null,
-  email: null,
+  phoneDisplay: "+237 655 03 08 15",
+  phoneHref: "+237655030815",
+  email: "contact@geobati.com",
   address: {
-    street: null,
-    locality: null,
-    region: null,
+    street: "Yassa",
+    locality: "Douala",
+    region: "Littoral",
     country: "Cameroun",
   },
-  hours: null,
-  mapUrl: null,
+  hours: ["Du lundi au samedi, de 8 h à 16 h"],
+  openingHoursSchema: ["Mo-Sa 08:00-16:00"],
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Yassa%2C%20Douala%2C%20Cameroun",
   serviceAreas: [],
   social: {
     facebook: null,

@@ -20,7 +20,9 @@ export function Footer() {
     (site.address.street || site.address.locality) && {
       label: "Adresse",
       value: [site.address.street, site.address.locality].filter(Boolean).join(", "),
+      href: site.mapUrl ?? undefined,
     },
+    site.hours?.length && { label: "Horaires", value: site.hours.join(" · ") },
   ].filter(Boolean) as { label: string; value: string; href?: string }[];
 
   return (
@@ -77,7 +79,7 @@ export function Footer() {
       <div className="border-t border-navy-line/50">
         <div className="shell flex flex-col gap-3 py-6 text-[0.85rem] sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {site.name} · Cabinet de géomètre au {site.address.country}
+            © {site.name} · Cabinet de géomètre expert au {site.address.country}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>

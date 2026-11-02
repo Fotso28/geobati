@@ -32,14 +32,14 @@ export default function HomePage() {
         <div className="shell grid gap-12 pt-12 pb-14 md:pt-16 lg:grid-cols-12 lg:gap-10 lg:pt-20 lg:pb-20">
           <div className="grid content-center gap-7 lg:col-span-6">
             <div data-intro="fade">
-              <Eyebrow tone="light">Cabinet de géomètre · Cameroun</Eyebrow>
+              <Eyebrow tone="light">Cabinet de géomètre expert · Douala, Cameroun</Eyebrow>
             </div>
             <h1 data-intro="headline" className="text-display max-w-[13ch]">
               Vos projets méritent de partir sur des bases solides.
             </h1>
             <p data-intro="fade" className="max-w-[46ch] text-lead text-mist">
-              Bornage, topographie, lotissement et accompagnement foncier : notre cabinet vous aide à mieux comprendre et
-              préparer vos projets de terrain au Cameroun.
+              Prestations foncières, topographie, urbanisme et travaux publics : votre géomètre expert vous accompagne,
+              du bornage d’une parcelle au suivi d’un chantier.
             </p>
             <div data-intro="fade" className="flex flex-wrap gap-3 pt-1">
               <ButtonLink href="/demande-de-devis" size="lg">
@@ -71,7 +71,7 @@ export default function HomePage() {
         {/* Règle graduée : accès direct aux prestations */}
         <nav aria-label="Nos prestations" className="relative border-t border-navy-line/70">
           <div aria-hidden="true" className="ruler-ticks absolute inset-x-0 top-0 h-3 text-navy-line" />
-          <ul className="shell grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+          <ul className="shell grid grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
               <li key={service.slug}>
                 <Link
@@ -109,8 +109,13 @@ export default function HomePage() {
                   href={`/services/${service.slug}`}
                   className="group grid gap-3 py-6 md:grid-cols-[1fr_auto] md:items-center md:gap-8 md:py-7"
                 >
-                  <span className="text-[clamp(1.3rem,1.05rem+1vw,1.85rem)] leading-tight font-[600] tracking-[-0.02em] [font-stretch:90%] transition-colors group-hover:text-teal-deep">
-                    «&nbsp;{service.need}&nbsp;»
+                  <span className="grid gap-2">
+                    <span className="text-[clamp(1.3rem,1.05rem+1vw,1.85rem)] leading-tight font-[600] tracking-[-0.02em] [font-stretch:90%] transition-colors group-hover:text-teal-deep">
+                      «&nbsp;{service.need}&nbsp;»
+                    </span>
+                    <span className="text-[0.95rem] text-slate">
+                      {service.prestations.map((prestation) => prestation.title).join(" · ")}
+                    </span>
                   </span>
                   <span className="flex items-center gap-3 text-navy">
                     <ServiceIcon name={service.icon} className="size-5 shrink-0" />
@@ -182,7 +187,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Sur le terrain"
               title="Aperçu de nos interventions"
-              text="Relevés, délimitations, implantations : quelques situations que nous accompagnons."
+              text="Foncier, topographie, urbanisme, travaux publics : quelques situations que nous accompagnons."
             />
             <div data-reveal="">
               <ButtonLink href="/realisations" variant="outline">

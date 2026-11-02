@@ -83,6 +83,12 @@ export const imageSlots = {
     illustration: true,
     position: "25% 50%",
   },
+  travauxPublics: {
+    file: "service-travaux-publics",
+    alt: "Niveau optique sur trépied au bord d'un chantier routier, compacteur en arrière-plan",
+    brief: "Chantier de route ou de voirie, matériel de topographie.",
+    illustration: true,
+  },
   drone: {
     file: "service-drone",
     alt: "Télépilote préparant un drone de cartographie sur son aire de décollage",

@@ -10,7 +10,7 @@ export const about = {
   intro: {
     draft: true,
     paragraphs: [
-      "GéoBati accompagne particuliers, familles, entreprises et porteurs de projets dans leurs projets de terrain au Cameroun.",
+      "GéoBati est un cabinet de géomètre expert installé à Yassa, à Douala. Nous intervenons dans quatre domaines : prestations foncières, topographie et mesures techniques, urbanisme et aménagement, travaux publics.",
       "Notre métier consiste à mesurer, représenter et expliquer : connaître un terrain avec précision, et faire en sorte que chacun comprenne ce que les mesures veulent dire pour son projet.",
     ],
   },

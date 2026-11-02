@@ -1,4 +1,4 @@
-import { formatPhone, mainNav, site } from "@/content/site";
+import { mainNav, site } from "@/content/site";
 import { services } from "@/content/services";
 import { ButtonLink } from "@/components/ui/Button";
 import { Logo } from "./Logo";
@@ -24,7 +24,7 @@ export function Header() {
             items={mainNav}
             services={serviceLinks}
             whatsappHref={whatsappUrl(generalMessage)}
-            whatsappDisplay={site.whatsappNumber ? formatPhone(site.whatsappNumber) : undefined}
+            phone={site.phoneHref && site.phoneDisplay ? { href: site.phoneHref, display: site.phoneDisplay } : undefined}
           />
         </div>
       </div>

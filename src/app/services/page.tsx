@@ -12,9 +12,9 @@ import { JsonLd, MarkerList } from "@/components/ui/primitives";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
-  title: "Nos services de géomètre",
+  title: "Nos domaines d’intervention",
   description:
-    "Bornage, topographie, lotissement, implantation de chantier, drone et conseil foncier : comparez les prestations du cabinet GéoBati et trouvez celle qui correspond à votre projet.",
+    "Prestations foncières, topographie et mesures techniques, urbanisme et aménagement, travaux publics : les quatre domaines d’intervention de GéoBati, cabinet de géomètre expert à Douala.",
   alternates: { canonical: "/services" },
 };
 
@@ -30,7 +30,7 @@ export default function ServicesPage() {
         breadcrumbs={breadcrumbs}
         eyebrow={`${services.length} domaines d’intervention`}
         title="Une expertise adaptée à chaque projet de terrain."
-        text="Découvrez nos domaines d’intervention, du repérage de votre parcelle à l’accompagnement de vos projets d’aménagement."
+        text="Quatre domaines d’intervention, du bornage d’une parcelle au suivi d’un chantier de travaux publics."
       >
         <nav aria-label="Aller à une prestation" className="pt-4" data-intro="fade">
           <ul className="flex flex-wrap gap-2">
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 {service.summary}
               </p>
               <div data-reveal="">
-                <MarkerList items={service.examples} />
+                <MarkerList items={service.prestations.map((prestation) => prestation.title)} className="sm:grid-cols-2 sm:gap-x-6" />
               </div>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2" data-reveal="">
                 <ButtonLink href={`/services/${service.slug}`} variant="dark">

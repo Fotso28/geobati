@@ -78,7 +78,7 @@ export const articles: Article[] = [
       "Quelques éléments simples suffisent pour un premier échange utile. Voici lesquels, et pourquoi ils comptent.",
     readingMinutes: 3,
     image: "articleInformations",
-    relatedService: "conseil-foncier",
+    relatedService: "prestations-foncieres",
     sections: [
       {
         heading: "Vous n’avez pas besoin d’un dossier complet",
@@ -121,7 +121,7 @@ export const articles: Article[] = [
       "Les deux impliquent des mesures, mais ils ne répondent pas à la même question. Voici comment les distinguer.",
     readingMinutes: 4,
     image: "articleDelimitation",
-    relatedService: "bornage",
+    relatedService: "prestations-foncieres",
     sections: [
       {
         heading: "Deux questions différentes",
@@ -164,7 +164,7 @@ export const articles: Article[] = [
       "Une intervention bien préparée coûte moins cher, prend moins de temps et répond mieux à votre besoin.",
     readingMinutes: 3,
     image: "equipment",
-    relatedService: "implantation",
+    relatedService: "topographie",
     sections: [
       {
         heading: "Une intervention se prépare au bureau",
@@ -200,7 +200,7 @@ export const articles: Article[] = [
       "Pas besoin de connaître le vocabulaire technique. Voici une façon simple de présenter votre situation.",
     readingMinutes: 3,
     image: "articleEchange",
-    relatedService: "conseil-foncier",
+    relatedService: "prestations-foncieres",
     sections: [
       {
         heading: "Partez de votre objectif",

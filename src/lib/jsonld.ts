@@ -32,7 +32,7 @@ export function organizationJsonLd() {
           },
         }
       : {}),
-    ...(site.hours?.length ? { openingHours: site.hours } : {}),
+    ...(site.openingHoursSchema?.length ? { openingHours: site.openingHoursSchema } : {}),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Prestations",

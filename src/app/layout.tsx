@@ -27,7 +27,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · Géomètre au Cameroun : bornage, topographie, lotissement`,
+    default: `${site.name} · Cabinet de géomètre expert à Douala, Cameroun`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: site.name,
-    title: `${site.name} · Cabinet de géomètre au Cameroun`,
+    title: `${site.name} · Cabinet de géomètre expert au Cameroun`,
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
