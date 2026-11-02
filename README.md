@@ -157,5 +157,8 @@ public/images/             Photos à déposer
 
 ## Déploiement
 
-Le site se déploie tel quel sur Vercel ou tout hébergeur Node.js.
-Pensez à définir `NEXT_PUBLIC_SITE_URL` dans les variables d'environnement, puis à relancer un build. Le numéro WhatsApp est déjà inclus dans le code.
+Le site est hébergé sur Vercel, relié au dépôt GitHub : chaque envoi sur la branche de production déclenche un nouveau déploiement.
+
+- Adresse publique : celle du projet Vercel, utilisée automatiquement pour le sitemap et les balises SEO.
+- Nom de domaine du cabinet : ajoutez-le dans Vercel (Settings → Domains), puis définissez `NEXT_PUBLIC_SITE_URL` avec cette adresse et relancez un déploiement.
+- Le numéro WhatsApp est inclus dans le code ; aucune variable n'est obligatoire.

@@ -44,13 +44,24 @@ export type SiteConfig = {
   };
 };
 
+/**
+ * Adresse publique du site : NEXT_PUBLIC_SITE_URL si elle est définie (nom de domaine
+ * du cabinet), sinon l'adresse de production fournie automatiquement par Vercel.
+ */
+function siteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  const vercel = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  const url = explicit || (vercel ? `https://${vercel}` : "http://localhost:3000");
+  return url.replace(/\/$/, "");
+}
+
 export const site: SiteConfig = {
   name: "GéoBati",
   tagline: "Géomètres bâtisseurs 3.0",
   legalName: null,
   description:
     "Cabinet de géomètre au Cameroun : bornage et délimitation, topographie, lotissement, implantation de chantier, drone et conseil foncier.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
+  url: siteUrl(),
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "237655030815").replace(/\D/g, ""),
   phoneDisplay: null,
   phoneHref: null,
