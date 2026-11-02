@@ -45,33 +45,29 @@ Pour les montrer sur une préversion envoyée au cabinet : `NEXT_PUBLIC_SHOW_DRA
 
 ## Photos
 
-La banque d'images se trouve sur l'ordinateur (`C:\Users\USER\Downloads\image`).
-Copiez chaque photo choisie dans `public/images/` en la renommant selon l'emplacement ci-dessous.
-Extensions acceptées : `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`.
-La photo apparaît automatiquement. Tant qu'un fichier manque, un visuel « plan » (quadrillage et courbes de niveau) le remplace.
+Les photos du site viennent de la banque d'images du cabinet (envoyée sur GitHub le 2 novembre 2026).
+33 photos ont été sélectionnées, recadrées si besoin et converties en WebP (5,6 Mo au total, contre 129 Mo pour les originaux).
+Elles se trouvent dans `public/images/`.
 
-| Fichier | Ce que la photo doit montrer |
+Chaque emplacement est déclaré dans `src/content/images.ts`, avec :
+- le nom du fichier ;
+- le texte alternatif, qui décrit la photo pour les lecteurs d'écran et les moteurs de recherche ;
+- le cadrage (`position`) quand la photo est recadrée ;
+- l'indicateur `illustration`.
+
+Pour remplacer une photo, déposez un fichier du même nom dans `public/images/`, avec l'extension `.webp`, `.avif`, `.jpg`, `.jpeg` ou `.png`, en supprimant l'ancien.
+Si un fichier manque, un visuel « plan » (quadrillage et courbes de niveau) le remplace automatiquement.
+
+| Emplacements | Où ils apparaissent |
 |---|---|
-| `hero` | Équipe camerounaise de géomètres en intervention, matériel professionnel visible, format paysage. |
-| `equipe` | Vraie photo de l'équipe ou du géomètre responsable. |
-| `responsable` | Portrait professionnel du responsable, cadrage buste, format vertical. |
-| `cabinet` | Bureau, poste de dessin ou de cartographie, plans sur la table. |
-| `equipement` | Matériel réellement utilisé : station totale, GNSS, drone. |
-| `service-bornage` | Pose ou repérage d'une borne, limite de parcelle. |
-| `service-topographie` | Relevé au GNSS ou à la station totale, terrain naturel. |
-| `service-lotissement` | Terrain découpé, piquets, voie d'accès en cours d'ouverture. |
-| `service-implantation` | Chantier, chaises d'implantation, cordeaux, fondations. |
-| `service-drone` | Drone en vol ou vue aérienne d'un site. |
-| `service-conseil` | Échange avec un client autour d'un plan ou de documents. |
-| `intervention-1` | Relevé topographique. |
-| `intervention-2` | Intervention sur une parcelle. |
-| `intervention-3` | Implantation sur chantier. |
-| `contact` | Échange téléphonique ou accueil au cabinet. |
+| `hero`, `equipe`, `intervention-1` à `3` | Accueil |
+| `service-*` | Pages services |
+| `cabinet`, `responsable`, `equipement`, `materiel-*` | À propos |
+| `realisation-*` | Réalisations |
+| `conseil-*` | Conseils fonciers |
+| `contact` | Contact |
 
-Exemple : `C:\Users\USER\Downloads\image\IMG_2041.jpg` → `public/images/hero.jpg`.
-
-Chaque emplacement est déclaré dans `src/content/images.ts` avec un texte alternatif et un indicateur `illustration`.
-Les images d'illustration (banque d'images, images générées) portent la mention **« Illustration »** sur les pages de réalisations et d'interventions.
+Les images d'illustration (banque d'images, images générées) portent la mention **« Illustration »** sur l'accueil et les réalisations.
 Passez `illustration: false` uniquement pour une vraie photo du cabinet, publiée avec l'accord des personnes concernées.
 
 ## Le tunnel vers WhatsApp

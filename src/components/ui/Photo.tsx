@@ -23,7 +23,15 @@ export function Photo({ image, sizes, className, preload, badge, parallax }: Pho
     <div className={cn("relative overflow-hidden bg-paper-2", className)}>
       {image.src ? (
         <div className={cn("absolute inset-0", parallax && "-inset-y-[8%]")} data-parallax={parallax ? "" : undefined}>
-          <Image src={image.src} alt={image.alt} fill sizes={sizes} preload={preload} className="object-cover" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes={sizes}
+            preload={preload}
+            className={image.fit === "contain" ? "object-contain p-[8%]" : "object-cover"}
+            style={image.position ? { objectPosition: image.position } : undefined}
+          />
         </div>
       ) : (
         <PhotoPlaceholder image={image} />
@@ -48,7 +56,7 @@ function PhotoPlaceholder({ image }: { image: ResolvedImage }) {
       <div aria-hidden="true" className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-4">
         <p className="label max-w-[34ch] text-[0.62rem] leading-snug text-slate">
           Fig. — {image.alt}
-          {isDev && <span className="mt-1 block normal-case text-ochre-deep">public/images/{image.file}.jpg</span>}
+          {isDev && <span className="mt-1 block normal-case text-ochre-deep">public/images/{image.file}.webp</span>}
         </p>
         <svg viewBox="0 0 64 14" className="hidden w-16 shrink-0 text-slate sm:block" aria-hidden="true">
           <path d="M1 3v8M21 3v8M42 3v8M63 3v8M1 11h62" fill="none" stroke="currentColor" strokeWidth="1" />

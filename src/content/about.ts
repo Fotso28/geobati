@@ -4,6 +4,8 @@
  * remplacer par les mots du cabinet. Les listes vides masquent leur section.
  */
 
+import type { ImageKey } from "./images";
+
 export const about = {
   intro: {
     draft: true,
@@ -35,21 +37,27 @@ export const about = {
     items: [
       {
         name: "Station totale",
+        image: "matStation",
         text: "Mesure les angles et les distances depuis un point connu. Instrument de référence pour l’implantation et les relevés détaillés.",
       },
       {
         name: "Récepteur GNSS",
+        image: "matGnss",
         text: "Positionne un point par satellites. Utile pour rattacher les mesures à un système de coordonnées et couvrir rapidement un terrain dégagé.",
       },
       {
-        name: "Drone de cartographie",
-        text: "Photographie un site depuis les airs pour produire orthophotos et modèles de terrain sur de grandes surfaces.",
+        name: "Niveau optique",
+        image: "matNiveau",
+        text: "Mesure les différences de hauteur. Indispensable pour donner des niveaux de référence sur un chantier.",
       },
       {
-        name: "Logiciels de calcul, DAO et SIG",
-        text: "Traitent les mesures et produisent les plans, les fichiers pour l’architecte et les cartes.",
+        name: "Drone de cartographie",
+        image: "matDrone",
+        text: "Photographie un site depuis les airs pour produire orthophotos et modèles de terrain sur de grandes surfaces.",
       },
-    ],
+    ] satisfies { name: string; image: ImageKey; text: string }[],
+    software:
+      "Les mesures sont ensuite traitées au bureau avec des logiciels de calcul, de dessin (DAO) et de cartographie (SIG) pour produire les plans, les fichiers destinés à l’architecte et les cartes.",
   },
   /** Agréments, inscriptions professionnelles, références : uniquement après vérification. */
   credentials: [] as { label: string; detail: string }[],

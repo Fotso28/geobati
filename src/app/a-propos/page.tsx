@@ -134,11 +134,15 @@ export default function AboutPage() {
             <div data-reveal="">
               <Photo image={getImage("equipment")} sizes="(min-width: 1024px) 28vw, 100vw" className="aspect-[4/3]" />
             </div>
+            <p className="text-slate" data-reveal="">
+              {about.equipment.software}
+            </p>
             {about.equipment.draft && <DraftNote>Ne garder que le matériel réellement utilisé par le cabinet.</DraftNote>}
           </div>
           <dl className="grid gap-px self-start border border-line bg-line sm:grid-cols-2 lg:col-span-8">
             {about.equipment.items.map((item) => (
-              <div key={item.name} className="grid content-start gap-3 bg-paper p-6 md:p-8" data-reveal="">
+              <div key={item.name} className="grid content-start gap-4 bg-paper p-6 md:p-8" data-reveal="">
+                <Photo image={getImage(item.image)} sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 90vw" className="aspect-[4/3] bg-white" />
                 <dt className="text-h3">{item.name}</dt>
                 <dd className="text-slate">{item.text}</dd>
               </div>

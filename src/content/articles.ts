@@ -33,7 +33,7 @@ export const articles: Article[] = [
     excerpt:
       "Relief, dimensions, éléments existants : ce que contient un relevé, à quoi il sert et à quel moment le demander.",
     readingMinutes: 4,
-    image: "topographie",
+    image: "articleReleve",
     relatedService: "topographie",
     sections: [
       {
@@ -77,7 +77,7 @@ export const articles: Article[] = [
     excerpt:
       "Quelques éléments simples suffisent pour un premier échange utile. Voici lesquels, et pourquoi ils comptent.",
     readingMinutes: 3,
-    image: "conseil",
+    image: "articleInformations",
     relatedService: "conseil-foncier",
     sections: [
       {
@@ -120,7 +120,7 @@ export const articles: Article[] = [
     excerpt:
       "Les deux impliquent des mesures, mais ils ne répondent pas à la même question. Voici comment les distinguer.",
     readingMinutes: 4,
-    image: "bornage",
+    image: "articleDelimitation",
     relatedService: "bornage",
     sections: [
       {
@@ -163,7 +163,7 @@ export const articles: Article[] = [
     excerpt:
       "Une intervention bien préparée coûte moins cher, prend moins de temps et répond mieux à votre besoin.",
     readingMinutes: 3,
-    image: "implantation",
+    image: "equipment",
     relatedService: "implantation",
     sections: [
       {
@@ -199,7 +199,7 @@ export const articles: Article[] = [
     excerpt:
       "Pas besoin de connaître le vocabulaire technique. Voici une façon simple de présenter votre situation.",
     readingMinutes: 3,
-    image: "team",
+    image: "articleEchange",
     relatedService: "conseil-foncier",
     sections: [
       {

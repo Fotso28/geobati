@@ -50,7 +50,7 @@ export const realisations: Realisation[] = [
       "Plan coté avec courbes de niveau et points altimétriques",
       "Remise des fichiers numériques pour la conception",
     ],
-    images: ["intervention1", "topographie"],
+    images: ["realReleve", "realReleve2"],
     illustrative: true,
   },
   {
@@ -67,7 +67,7 @@ export const realisations: Realisation[] = [
       "Recherche et repérage des limites sur le terrain",
       "Présentation des résultats au propriétaire",
     ],
-    images: ["bornage", "intervention2"],
+    images: ["realDelimitation", "bornage"],
     illustrative: true,
   },
   {
@@ -84,7 +84,7 @@ export const realisations: Realisation[] = [
       "Implantation des axes et des angles du bâtiment",
       "Transmission des niveaux de référence au chef de chantier",
     ],
-    images: ["intervention3", "implantation"],
+    images: ["realImplantation", "realImplantation2"],
     illustrative: true,
   },
   {
@@ -101,7 +101,7 @@ export const realisations: Realisation[] = [
       "Analyse des documents et du relief",
       "Présentation des étapes et des études nécessaires",
     ],
-    images: ["lotissement"],
+    images: ["realDivision", "conseil"],
     illustrative: true,
   },
   {
@@ -118,7 +118,7 @@ export const realisations: Realisation[] = [
       "Prises de vue avec points de contrôle au sol",
       "Production d’une orthophoto et d’un plan de situation",
     ],
-    images: ["drone"],
+    images: ["realCartographie", "realCartographie2"],
     illustrative: true,
   },
   {
@@ -135,7 +135,7 @@ export const realisations: Realisation[] = [
       "Contrôles de position et de niveaux sur place",
       "Compte rendu des écarts constatés",
     ],
-    images: ["implantation", "intervention3"],
+    images: ["realSuivi", "realSuivi2"],
     illustrative: true,
   },
 ];

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { imageSlots, type ImageKey } from "@/content/images";
+import { imageSlots, type ImageKey, type ImageSlot } from "@/content/images";
 
 /**
  * Résolution des emplacements photo (côté serveur uniquement).
@@ -16,6 +16,8 @@ export type ResolvedImage = {
   alt: string;
   file: string;
   illustration: boolean;
+  position?: string;
+  fit: "cover" | "contain";
 };
 
 function availableFiles(): Set<string> {
@@ -27,7 +29,7 @@ function availableFiles(): Set<string> {
 }
 
 export function getImage(key: ImageKey): ResolvedImage {
-  const slot = imageSlots[key];
+  const slot: ImageSlot = imageSlots[key];
   const files = availableFiles();
   const ext = EXTENSIONS.find((candidate) => files.has(`${slot.file}.${candidate}`));
   return {
@@ -36,5 +38,7 @@ export function getImage(key: ImageKey): ResolvedImage {
     alt: slot.alt,
     file: slot.file,
     illustration: slot.illustration,
+    position: slot.position,
+    fit: slot.fit ?? "cover",
   };
 }
