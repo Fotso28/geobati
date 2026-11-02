@@ -1,7 +1,7 @@
 import { TopoLines } from "@/components/ui/TopoLines";
 import { Eyebrow } from "@/components/ui/primitives";
 
-/** Bande d'appel à l'action, sur fond vert forêt avec courbes de niveau. */
+/** Bande d'appel à l'action, sur fond bleu marine avec courbes de niveau. */
 export function CtaBand({
   eyebrow,
   title,

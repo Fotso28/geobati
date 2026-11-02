@@ -85,12 +85,12 @@
   }
 
   ::selection {
-    background: var(--color-ochre);
-    color: var(--color-ochre-ink);
+    background: var(--color-teal);
+    color: var(--color-teal-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ochre-deep);
+    outline: 2px solid var(--color-teal-deep);
     outline-offset: 3px;
   }
 
