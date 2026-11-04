@@ -140,6 +140,44 @@ Les animations sont pilotées par des attributs posés dans le HTML et exécuté
 Les animations sont désactivées si le visiteur a demandé à réduire les mouvements.
 Si JavaScript ne s'exécute pas, tout le contenu reste visible.
 
+## Vidéos (HyperFrames)
+
+Les vidéos (publicités, réseaux sociaux, statuts WhatsApp) sont fabriquées avec [HyperFrames](https://github.com/heygen-com/hyperframes), l'outil libre de HeyGen.
+Une vidéo s'écrit en HTML, CSS et GSAP, et HyperFrames la transforme en MP4.
+Le projet vidéo vit dans `video/`, à part du site : il n'entre ni dans le build ni dans le déploiement Vercel.
+
+Prérequis : Node.js 22 ou plus récent, et FFmpeg.
+Le rendu passe par Chrome : `npx hyperframes browser ensure` (dans `video/`) en trouve un ou télécharge une version sans interface, et `npx hyperframes doctor` vérifie l'ensemble.
+
+```bash
+npm run video:install   # une fois : installe la CLI HyperFrames dans video/
+npm run video:dev       # studio de prévisualisation dans le navigateur
+npm run video:check     # vérifications (structure, mise en page, contrastes)
+npm run video:render    # rendu MP4 dans video/renders/
+```
+
+| Fichier | Rôle |
+|---|---|
+| `video/index.html` | Composition principale : durée, format (1920 × 1080 par défaut), variables modifiables (titre, signature, couleurs) |
+| `video/compositions/` | Une scène par fichier ; `intro.html` est une carte titre GéoBati de 5 secondes, qui sert d'exemple |
+| `video/assets/` | Médias et polices de la vidéo ; GSAP y est copié pour que le rendu fonctionne sans réseau |
+| `video/renders/` | Vidéos rendues (non versionnées) |
+
+Pour un format vertical (Reels, statuts), la composition doit être pensée en 1080 × 1920 (`data-width`, `data-height` et taille de la page) : `render --resolution` change la définition, pas l'orientation.
+Quelques commandes utiles depuis `video/` : `npx hyperframes snapshot --at 1,3` (images PNG à ces secondes) et `npx hyperframes render -o renders/pub.mp4 --variables '{"tagline":"…"}'` (remplace un texte ou une couleur sans toucher aux fichiers).
+
+**Avec Claude Code** : les skills HyperFrames sont installées dans le dépôt (`.claude/skills/`, version figée dans `skills-lock.json`).
+Il suffit de demander, par exemple « fais une vidéo de 15 s sur la délimitation de parcelle », depuis une nouvelle session.
+Pour les mettre à jour, depuis la racine du dépôt :
+
+```bash
+npx skills add "https://github.com/heygen-com/hyperframes#v0.9.13" --skill hyperframes --skill hyperframes-cli --skill hyperframes-registry --skill media-use --agent claude-code --copy --full-depth --yes
+```
+
+En changeant `v0.9.13` pour la version installée dans `video/package.json` (pour monter de version : `npm install -D hyperframes@<version>` dans `video/`).
+
+La CLI HyperFrames envoie des statistiques d'usage à HeyGen ; pour les couper : `npx hyperframes telemetry disable`, ou la variable `HYPERFRAMES_NO_TELEMETRY=1`.
+
 ## Organisation
 
 ```text
@@ -155,6 +193,8 @@ src/
   components/              Interface (layout, sections, formulaires, animations)
   lib/                     WhatsApp, images, données structurées, courbes de niveau
 public/images/             Photos à déposer
+video/                     Vidéos HyperFrames (projet séparé du site)
+.claude/skills/            Skills HyperFrames pour Claude Code
 ```
 
 ## Déploiement

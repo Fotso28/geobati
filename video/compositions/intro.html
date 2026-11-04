@@ -1,0 +1,74 @@
+<!-- Carte titre GéoBati : nom, signature et lieu repris de src/content/site.ts. -->
+<template>
+  <style>
+    /* Couleurs du site (src/app/globals.css) : bleu marine et turquoise du logo. */
+    #root {
+      position: absolute;
+      inset: 0;
+      --ink: #ffffff;
+      --mist: #c3d6e2;
+      --font-display: "Inter", sans-serif;
+      --font-mono: "IBM Plex Mono", monospace;
+    }
+    #intro-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--ground, #043b58);
+    }
+    #intro-card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      text-align: center;
+    }
+    #intro-place {
+      color: var(--mist);
+      font-family: var(--font-mono);
+      font-size: 30px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    #intro-headline {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 190px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+    #intro-rule {
+      width: 520px;
+      height: 6px;
+      background: var(--accent, #30b0b4);
+    }
+    #intro-tagline {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 54px;
+      font-weight: 400;
+    }
+  </style>
+  <div id="root" data-composition-id="intro" data-width="1920" data-height="1080">
+    <div id="intro-bg"></div>
+    <div id="intro-card" class="clip" data-start="0" data-duration="5" data-track-index="0">
+      <p id="intro-place" data-var-text="place">Douala · Cameroun</p>
+      <h1 id="intro-headline" data-var-text="headline">GéoBati</h1>
+      <div id="intro-rule"></div>
+      <p id="intro-tagline" data-var-text="tagline">Géomètres bâtisseurs 3.0</p>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    // Le titre est déjà à l'écran à 0 s : la première image sert de vignette sur les réseaux sociaux.
+    tl.fromTo("#intro-headline", { scale: 1.06 }, { scale: 1, duration: 1.4, ease: "power3.out" }, 0);
+    tl.fromTo("#intro-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 0.3);
+    tl.fromTo("#intro-place", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.5);
+    tl.fromTo("#intro-tagline", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.8);
+    window.__timelines["intro"] = tl;
+  </script>
+</template>

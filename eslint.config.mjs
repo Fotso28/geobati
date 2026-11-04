@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vidéos HyperFrames (projet séparé) et skills tierces pour les agents IA.
+    "video/**",
+    ".claude/**",
   ]),
 ]);
 

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Les vidéos (video/) et les skills des agents IA (.claude/) ne font pas partie du site. */
+@source not "../../video";
+@source not "../../.claude";
+
 /*
   GéoBati — langage visuel « plan de géomètre », aux couleurs du logo.
   Bleu marine et turquoise du logo ; fond blanc cassé froid ; teinte turquoise
