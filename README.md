@@ -160,21 +160,35 @@ npm run video:render    # rendu MP4 dans video/renders/
 |---|---|
 | `video/index.html` | Composition principale : durée, format (1920 × 1080 par défaut), variables modifiables (titre, signature, couleurs) |
 | `video/compositions/` | Une scène par fichier ; `intro.html` est une carte titre GéoBati de 5 secondes, qui sert d'exemple |
-| `video/assets/` | Médias et polices de la vidéo ; GSAP y est copié pour que le rendu fonctionne sans réseau |
+| `video/assets/` | Médias et polices de la vidéo : Archivo, la police du site (`assets/fonts/`, licence OFL), et GSAP, copié pour que le rendu fonctionne sans réseau |
 | `video/renders/` | Vidéos rendues (non versionnées) |
 
 Pour un format vertical (Reels, statuts), la composition doit être pensée en 1080 × 1920 (`data-width`, `data-height` et taille de la page) : `render --resolution` change la définition, pas l'orientation.
 Quelques commandes utiles depuis `video/` : `npx hyperframes snapshot --at 1,3` (images PNG à ces secondes) et `npx hyperframes render -o renders/pub.mp4 --variables '{"tagline":"…"}'` (remplace un texte ou une couleur sans toucher aux fichiers).
 
-**Avec Claude Code** : les skills HyperFrames sont installées dans le dépôt (`.claude/skills/`, version figée dans `skills-lock.json`).
+**Avec Claude Code** : les skills sont installées dans le dépôt (`.claude/skills/`, sources figées dans `skills-lock.json`) :
+
+- HyperFrames : `hyperframes`, `hyperframes-cli`, `hyperframes-registry` (environ 450 effets prêts à l'emploi), `media-use` ;
+- GSAP, skills officielles de GreenSock : `gsap-core`, `gsap-timeline`, `gsap-plugins`, `gsap-utils`, `gsap-performance`, et pour le site `gsap-react` et `gsap-scrolltrigger`.
+
 Il suffit de demander, par exemple « fais une vidéo de 15 s sur la délimitation de parcelle », depuis une nouvelle session.
-Pour les mettre à jour, depuis la racine du dépôt :
+Dans `video/`, les règles HyperFrames priment sur celles de GSAP (pas de boucle infinie, pas de ScrollTrigger dans une vidéo).
+Pour mettre à jour les skills HyperFrames, depuis la racine du dépôt :
 
 ```bash
 npx skills add "https://github.com/heygen-com/hyperframes#v0.9.13" --skill hyperframes --skill hyperframes-cli --skill hyperframes-registry --skill media-use --agent claude-code --copy --full-depth --yes
 ```
 
 En changeant `v0.9.13` pour la version installée dans `video/package.json` (pour monter de version : `npm install -D hyperframes@<version>` dans `video/`).
+Pour les skills GSAP : `npx skills add https://github.com/greensock/gsap-skills --skill gsap-core --skill gsap-timeline --skill gsap-plugins --skill gsap-utils --skill gsap-performance --skill gsap-react --skill gsap-scrolltrigger --agent claude-code --copy --yes`.
+
+**Outils à installer sur la machine** (une fois par ordinateur, hors du dépôt) :
+
+| Besoin | Installation |
+|---|---|
+| Musique, bruitages, banque d'images et d'icônes, voix HeyGen | Compte HeyGen gratuit : `npx hyperframes auth login` (depuis `video/`), avec le [CLI `heygen`](https://developers.heygen.com/cli) 0.3.0 ou plus |
+| Voix off française gratuite, sur la machine | Python 3.10+ et `pip install kokoro-onnx soundfile`, puis `npx hyperframes tts "…" --voice ff_siwis -o assets/voix.wav` ; si le paquet est dans un environnement virtuel, `HYPERFRAMES_PYTHON` doit pointer vers son Python |
+| Sous-titres (transcription, français compris) | `npx hyperframes models install parakeet` (modèle téléchargé depuis huggingface.co) |
 
 La CLI HyperFrames envoie des statistiques d'usage à HeyGen ; pour les couper : `npx hyperframes telemetry disable`, ou la variable `HYPERFRAMES_NO_TELEMETRY=1`.
 
